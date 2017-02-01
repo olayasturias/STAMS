@@ -1,101 +1,619 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Introduction &#8212; STAMS library 1.0 documentation</title>
-    
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="STAMS library 1.0 documentation" href="index.html" />
-    <link rel="prev" title="Welcome to STAMS library’s documentation!" href="index.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
   
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head>
-  <body role="document">
+  <title>Introduction &mdash; STAMS_GUI 1.0 documentation</title>
   
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="STAMS_GUI 1.0 documentation" href="index.html"/>
+        <link rel="prev" title="Welcome to STAMS GUI’s documentation!" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> STAMS_GUI
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-stams-gui">What is STAMS GUI?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#which-devices-does-stams-gui-integrate">Which devices does STAMS GUI integrate?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#window-definition">Window Definition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#image-processing">Image processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#pose-information">Pose information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#gui-joystick-and-navigation-buttons">GUI Joystick and Navigation Buttons</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">STAMS_GUI</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/GUI_Documentation.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>Here comes that github page</p>
+<img alt="_images/stamslogo.png" src="_images/stamslogo.png" />
+<div class="section" id="what-is-stams-gui">
+<h2>What is STAMS GUI?<a class="headerlink" href="#what-is-stams-gui" title="Permalink to this headline">¶</a></h2>
+<p>STAMS GUI is the user inteface used with all the devices from STAMS project (see <a class="reference external" href="http://stams-rfcs.eu/">STAMS website.)</a>.</p>
+<p>It will allow easier manoeuvre of the different devices, and convenient visualization of the sensor readings.</p>
+</div>
+<div class="section" id="which-devices-does-stams-gui-integrate">
+<h2>Which devices does STAMS GUI integrate?<a class="headerlink" href="#which-devices-does-stams-gui-integrate" title="Permalink to this headline">¶</a></h2>
+<p>Different devices need to be monitorized during their deployment. This User Interface will provide a different
+interface for each of them.</p>
+<p>Below, there is a table with the different devices integrated with the GUI, the sensor input to be visualized
+and the control commands that the user will be allowed to send. Additionnally, the developing state of the GUI
+for each device is indicated</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="23%" />
+<col width="30%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Device</th>
+<th class="head">Visualization tools</th>
+<th class="head">Control Commands</th>
+<th class="head">Developing state</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">Reference Point</div>
+<div class="line">Installation Module</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Camera</div>
+<div class="line">Pose</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Teleoperation/ Autonomous</div>
+<div class="line">(6 DOF)</div>
+</div>
+</td>
+<td>On develop</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">Profiling and</div>
+<div class="line">Collision Avoidance</div>
+<div class="line">Sub-module</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Profiler Scan</div>
+<div class="line">Distance to obstacle</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">UP/DOWN</div>
+</div>
+</td>
+<td>On develop</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">Multi Functional</div>
+<div class="line">Monitoring Module</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Cameras (3)</div>
+<div class="line">Pose</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">UP/DOWN</div>
+</div>
+</td>
+<td>On develop</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="window-definition">
+<h1>Window Definition<a class="headerlink" href="#window-definition" title="Permalink to this headline">¶</a></h1>
+<p>The main aspect for the GUI development, is creating the window that contains all the controllers and
+visualizers. Each of them needs a callback function that reads the data input or sends the command.</p>
+<div class="figure" id="id1">
+<img alt="Current aspect of the UI" src="_images/gui.png" />
+<p class="caption"><span class="caption-text">Current aspect of the UI, in this case visualizing the RPIM GUI in teleoperated mode.</span></p>
+</div>
+<dl class="class">
+<dt id="rov_ui.Window">
+<em class="property">class </em><code class="descclassname">rov_ui.</code><code class="descname">Window</code><a class="reference internal" href="_modules/rov_ui.html#Window"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rov_ui.Window" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Window</em> class inherits from QtGui.QWidget class.
+In this class the UI for the different hardware devices is created</p>
+<p><strong>Attributes</strong>:</p>
+<blockquote>
+<div><dl class="data">
+<dt id="Window.lblgui">
+<code class="descname">lblgui</code><a class="headerlink" href="#Window.lblgui" title="Permalink to this definition">¶</a></dt>
+<dd><p>lblgui is the text that labels the scene selection combo box</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="Window.lblnav">
+<code class="descname">lblnav</code><a class="headerlink" href="#Window.lblnav" title="Permalink to this definition">¶</a></dt>
+<dd><p>lblnav is the text that labels the Navigation mode combo box</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="Window.guimode">
+<code class="descname">guimode</code><a class="headerlink" href="#Window.guimode" title="Permalink to this definition">¶</a></dt>
+<dd><p>is the combo box that chooses between simulator o real device</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="Window.navmode">
+<code class="descname">navmode</code><a class="headerlink" href="#Window.navmode" title="Permalink to this definition">¶</a></dt>
+<dd><p>navmode is the combo box that chooses between teleoperated or autonomous navigation</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="Window.jb">
+<code class="descname">jb</code><a class="headerlink" href="#Window.jb" title="Permalink to this definition">¶</a></dt>
+<dd><p>joystick button instance from pyqtgraph</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="Window.jthread">
+<code class="descname">jthread</code><a class="headerlink" href="#Window.jthread" title="Permalink to this definition">¶</a></dt>
+<dd><p>joystick thread instance</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="Window.btnLEFT">
+<code class="descname">btnLEFT</code><a class="headerlink" href="#Window.btnLEFT" title="Permalink to this definition">¶</a></dt>
+<dd><p>navigation button which moves the ROV to the left</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="Window.btnRGT">
+<code class="descname">btnRGT</code><a class="headerlink" href="#Window.btnRGT" title="Permalink to this definition">¶</a></dt>
+<dd><p>navigation button which moves the ROV to the right</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="Window.btnUP">
+<code class="descname">btnUP</code><a class="headerlink" href="#Window.btnUP" title="Permalink to this definition">¶</a></dt>
+<dd><p>navigation button which moves the ROV up</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="Window.btnDOWN">
+<code class="descname">btnDOWN</code><a class="headerlink" href="#Window.btnDOWN" title="Permalink to this definition">¶</a></dt>
+<dd><p>navigation button which moves the ROV down</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="Window.imgwin">
+<code class="descname">imgwin</code><a class="headerlink" href="#Window.imgwin" title="Permalink to this definition">¶</a></dt>
+<dd><p>instance of GraphicsLayoutWidget from pyqtgraph to show images</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="Window.win">
+<code class="descname">win</code><a class="headerlink" href="#Window.win" title="Permalink to this definition">¶</a></dt>
+<dd><p>instance of GLViewWidget where a GLScatterPlotItem will be added to show the trajectory</p>
+</dd></dl>
+
+</div></blockquote>
+<dl class="method">
+<dt id="rov_ui.Window.btnDOWN_clicked">
+<code class="descname">btnDOWN_clicked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rov_ui.html#Window.btnDOWN_clicked"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rov_ui.Window.btnDOWN_clicked" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is executed when moving down button is clicked
+It publishes the required values in the thrusters to move down</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rov_ui.Window.btnLEFT_clicked">
+<code class="descname">btnLEFT_clicked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rov_ui.html#Window.btnLEFT_clicked"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rov_ui.Window.btnLEFT_clicked" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is executed when moving left button is clicked
+It publishes the required values in the thrusters to move left</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rov_ui.Window.btnRGT_clicked">
+<code class="descname">btnRGT_clicked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rov_ui.html#Window.btnRGT_clicked"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rov_ui.Window.btnRGT_clicked" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is executed when moving right button is clicked
+It publishes the required values in the thrusters to move right</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rov_ui.Window.btnUP_clicked">
+<code class="descname">btnUP_clicked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rov_ui.html#Window.btnUP_clicked"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rov_ui.Window.btnUP_clicked" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is executed when moving UP button is clicked
+It publishes the required values in the thrusters to move up</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rov_ui.Window.initUI">
+<code class="descname">initUI</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rov_ui.html#Window.initUI"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rov_ui.Window.initUI" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>initUI</em> method initializes the widgets from the UI window, and connects the different signals
+with the slots.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rov_ui.Window.joystick_changed">
+<code class="descname">joystick_changed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rov_ui.html#Window.joystick_changed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rov_ui.Window.joystick_changed" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function unlocs the joystick thread, allowing it to update the
+joystick commands as the ROV thrusther&#8217;s value</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rov_ui.Window.update_image">
+<code class="descname">update_image</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rov_ui.html#Window.update_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rov_ui.Window.update_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Every time a new image topic arrives, it is updated in the gui widget with this function</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rov_ui.Window.update_joystick">
+<code class="descname">update_joystick</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rov_ui.html#Window.update_joystick"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rov_ui.Window.update_joystick" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function updates the joystick values and sends them to the ROV&#8217;s
+thrusters</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rov_ui.Window.update_pose_plot">
+<code class="descname">update_pose_plot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rov_ui.html#Window.update_pose_plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rov_ui.Window.update_pose_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function updates the pose of the ROV and adds it to its trajectory in the
+3D scatter plot of the GUI</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rov_ui.Window.update_string">
+<code class="descname">update_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rov_ui.html#Window.update_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rov_ui.Window.update_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function updates the text value fron the PlainText widget every time the
+value changes</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="image-processing">
+<h1>Image processing<a class="headerlink" href="#image-processing" title="Permalink to this headline">¶</a></h1>
+<p>The camera data is sent through a ROS topic with the sensor_msgs/Image format, so it is necessary
+to convert it to a matrix format to make it readable from an external module like it is the case
+of the GUI. This is done via Opencv using <code class="docutils literal"><span class="pre">CvBridge</span></code></p>
+<div class="figure" id="id2">
+<img alt="conversion from ROS Image message to OpenCV matrix" src="_images/cvbridge.png" />
+<p class="caption"><span class="caption-text">conversion from ROS Image message to OpenCV matrix (see <a class="reference external" href="http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages">ROS wiki)</a>.</span></p>
+</div>
+<dl class="class">
+<dt id="rov_ui.image_converter">
+<em class="property">class </em><code class="descclassname">rov_ui.</code><code class="descname">image_converter</code><a class="reference internal" href="_modules/rov_ui.html#image_converter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rov_ui.image_converter" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <em>image_converter</em> class contains methods to subscribe to an image
+topic, convert it from sensor_msgs to cv image, and emit a signal to update
+the gui window.</p>
+<p><strong>Attributes</strong>:</p>
+<blockquote>
+<div><dl class="data">
+<dt id="image_converter.newcameraimage">
+<code class="descname">newcameraimage</code><a class="headerlink" href="#image_converter.newcameraimage" title="Permalink to this definition">¶</a></dt>
+<dd><p>A pyqt signal that will be emitted every time a new frame arrives</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="image_converter.image_sub">
+<code class="descname">image_sub</code><a class="headerlink" href="#image_converter.image_sub" title="Permalink to this definition">¶</a></dt>
+<dd><p>ros topic image subscriber</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="image_converter.cv_image">
+<code class="descname">cv_image</code><a class="headerlink" href="#image_converter.cv_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>variable that stores the cv imaged converted from sensor_msgs format</p>
+</dd></dl>
+
+</div></blockquote>
+<dl class="method">
+<dt id="rov_ui.image_converter.callback">
+<code class="descname">callback</code><span class="sig-paren">(</span><em>data</em>, <em>signal</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rov_ui.html#image_converter.callback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rov_ui.image_converter.callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receives the Image topic message and converts it from sensor_msgs
+to cv image using cv_bridge.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rov_ui.image_converter.subscribe">
+<code class="descname">subscribe</code><span class="sig-paren">(</span><em>signal</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rov_ui.html#image_converter.subscribe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rov_ui.image_converter.subscribe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subscribes to a camera topic</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>signal</strong> &#8211; signal related to the camera topic</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="pose-information">
+<h1>Pose information<a class="headerlink" href="#pose-information" title="Permalink to this headline">¶</a></h1>
+<p>The pose information is very important to collect as it is used for stamping of the different
+measurements with the pose info. The pose information comes from the Geo-Referencing Sub-module.</p>
+<div class="figure" id="id3">
+<img alt="pose" src="_images/pose.png" />
+<p class="caption"><span class="caption-text">Example of pose information used for 3D displaying of the device&#8217;s trajectory</span></p>
+</div>
+<dl class="class">
+<dt id="rov_ui.pose_subscriber">
+<em class="property">class </em><code class="descclassname">rov_ui.</code><code class="descname">pose_subscriber</code><a class="reference internal" href="_modules/rov_ui.html#pose_subscriber"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rov_ui.pose_subscriber" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <em>pose_subscriber</em> class contains methods to subscribe to the Pose
+topic , read the messages and save them in a float variable and in a
+string variable.</p>
+<p><strong>Attributes</strong>:</p>
+<blockquote>
+<div><dl class="data">
+<dt id="pose_subscriber.newstring">
+<code class="descname">newstring</code><a class="headerlink" href="#pose_subscriber.newstring" title="Permalink to this definition">¶</a></dt>
+<dd><p>Signal used for drawing a new string read from topic in a PlainText</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pose_subscriber.newscatter">
+<code class="descname">newscatter</code><a class="headerlink" href="#pose_subscriber.newscatter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Signal used for drawing a new pose point in a 3D scatter plot</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pose_subscriber.pose_world_frame">
+<code class="descname">pose_world_frame</code><a class="headerlink" href="#pose_subscriber.pose_world_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>float variable which stores the x,y,z coordinates of the robot pose</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pose_subscriber.datastring">
+<code class="descname">datastring</code><a class="headerlink" href="#pose_subscriber.datastring" title="Permalink to this definition">¶</a></dt>
+<dd><p>string variable which stores the x coordinate of the robot pose</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pose_subscriber.datainput">
+<code class="descname">datainput</code><a class="headerlink" href="#pose_subscriber.datainput" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>this variables is used for writing or drawing a new pose message only
+when it differs from the previous one</p>
+</div></blockquote>
+<dl class="method">
+<dt id="rov_ui.pose_subscriber.pose_callback">
+<code class="descname">pose_callback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rov_ui.html#pose_subscriber.pose_callback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rov_ui.pose_subscriber.pose_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads data from pose topic and emits the signals related with this message</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rov_ui.pose_subscriber.subscribe">
+<code class="descname">subscribe</code><span class="sig-paren">(</span><em>signal1</em>, <em>signal2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rov_ui.html#pose_subscriber.subscribe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rov_ui.pose_subscriber.subscribe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subscribes to a pose topic</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="gui-joystick-and-navigation-buttons">
+<h1>GUI Joystick and Navigation Buttons<a class="headerlink" href="#gui-joystick-and-navigation-buttons" title="Permalink to this headline">¶</a></h1>
+<p>Although the AUV is meant to be autonomous or operated with a joystick, an additional joystick has beed added to the GUI for those cases when the AUV needs to be teleoperated but there is not a physical joystick available.</p>
+<div class="figure" id="id4">
+<img alt="Joystick" src="_images/joystick.png" />
+<p class="caption"><span class="caption-text">Joystick and buttons from the GUI for teleoperation of the AUV. The joystick allows to move the AUV in front, left and right directions. The UP/DOWN buttons move the AUV up and down in the Z axis. The other two buttons rotate the AUV in anti-clockwise and clockwise directions</span></p>
+</div>
+<dl class="class">
+<dt id="rov_ui.Joystick_thread">
+<em class="property">class </em><code class="descclassname">rov_ui.</code><code class="descname">Joystick_thread</code><a class="reference internal" href="_modules/rov_ui.html#Joystick_thread"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rov_ui.Joystick_thread" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Joystick_thread</em> class creates a thread apart that updates the joystick measurement
+every certain time</p>
+<p><strong>Attributes</strong>:</p>
+<blockquote>
+<div><dl class="data">
+<dt id="Joystick_thread.signal">
+<code class="descname">signal</code><a class="headerlink" href="#Joystick_thread.signal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>signal that is emitted to call the slot which updates the velocity commands</p>
+<dl class="data">
+<dt id="Joystick_thread.mutex">
+<code class="descname">mutex</code><a class="headerlink" href="#Joystick_thread.mutex" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>this mutex only controls the access of the joystick of the buttons
+to write over the ROV commands</p>
+<dl class="data">
+<dt id="Joystick_thread.is_locked">
+<code class="descname">is_locked</code><a class="headerlink" href="#Joystick_thread.is_locked" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>this variable controls that the joystick is not writing over the ROV a the same time the
+buttons are being pressed</p>
+</div></blockquote>
+<dl class="method">
+<dt id="rov_ui.Joystick_thread.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rov_ui.html#Joystick_thread.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rov_ui.Joystick_thread.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is executed every 0.1 secs, and the joystick signal is emitted if
+the joystick is activated</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
+           </div>
           </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to STAMS GUI’s documentation!" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Olaya Alvarez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper"><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter">Welcome to STAMS library&#8217;s documentation!</a></li>
-  </ul></li>
-</ul>
-</div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/GUI_Documentation.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2017, Olaya Alvarez.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
-      
-      |
-      <a href="_sources/GUI_Documentation.txt"
-          rel="nofollow">Page source</a>
-    </div>
 
-    
+    </section>
 
-    
-  </body>
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
 </html>

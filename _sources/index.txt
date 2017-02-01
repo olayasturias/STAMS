@@ -1,10 +1,10 @@
-.. STAMS library documentation master file, created by
-   sphinx-quickstart on Wed Feb  1 11:23:11 2017.
+.. STAMS_GUI documentation master file, created by
+   sphinx-quickstart on Sat Jan 28 18:45:21 2017.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to STAMS library's documentation!
-=========================================
+Welcome to STAMS GUI's documentation!
+=====================================
 
 Contents:
 
@@ -12,6 +12,7 @@ Contents:
    :maxdepth: 2
 
    GUI_Documentation
+
 
 
 Indices and tables

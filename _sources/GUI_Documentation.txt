@@ -2,4 +2,102 @@
 Introduction
 **********************************
 
-Here comes that github page
+.. image:: ../source/stamslogo.png
+
+
+
+==================================
+What is STAMS GUI?
+==================================
+STAMS GUI is the user inteface used with all the devices from STAMS project (see `STAMS website.)
+<http://stams-rfcs.eu/>`_.
+
+It will allow easier manoeuvre of the different devices, and convenient visualization of the sensor readings.
+
+========================================
+Which devices does STAMS GUI integrate?
+========================================
+
+Different devices need to be monitorized during their deployment. This User Interface will provide a different
+interface for each of them.
+
+Below, there is a table with the different devices integrated with the GUI, the sensor input to be visualized
+and the control commands that the user will be allowed to send. Additionnally, the developing state of the GUI
+for each device is indicated
+
++--------------------------+-----------------------+-----------------------------+--------------------+
+|Device                    |Visualization tools    |Control Commands             | Developing state   |
++==========================+=======================+=============================+====================+
+| | Reference Point        | | Camera              | | Teleoperation/ Autonomous |    On develop      |
+| | Installation Module    | | Pose                | | (6 DOF)                   |                    |
++--------------------------+-----------------------+-----------------------------+--------------------+
+| | Profiling and          | | Profiler Scan       | | UP/DOWN                   |    On develop      |
+| | Collision Avoidance    | | Distance to obstacle|                             |                    |
+| | Sub-module             |                       |                             |                    |
++--------------------------+-----------------------+-----------------------------+--------------------+
+| | Multi Functional       | | Cameras (3)         | | UP/DOWN                   |    On develop      |
+| | Monitoring Module      | | Pose                |                             |                    |
++--------------------------+-----------------------+-----------------------------+--------------------+
+
+
+**********************************
+Window Definition
+**********************************
+The main aspect for the GUI development, is creating the window that contains all the controllers and
+visualizers. Each of them needs a callback function that reads the data input or sends the command.
+
+.. figure:: ../source/gui.png
+   :alt: Current aspect of the UI
+   
+   Current aspect of the UI, in this case visualizing the RPIM GUI in teleoperated mode.
+
+.. autoclass:: rov_ui.Window
+   :members:
+
+**********************************
+Image processing
+**********************************
+
+The camera data is sent through a ROS topic with the sensor_msgs/Image format, so it is necessary
+to convert it to a matrix format to make it readable from an external module like it is the case
+of the GUI. This is done via Opencv using ``CvBridge``
+
+.. figure:: ../source/cvbridge.png
+   :alt: conversion from ROS Image message to OpenCV matrix
+   
+   conversion from ROS Image message to OpenCV matrix (see `ROS wiki)
+   <http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages>`_.
+
+.. autoclass:: rov_ui.image_converter
+   :members:
+
+**********************************
+Pose information
+**********************************
+
+The pose information is very important to collect as it is used for stamping of the different 
+measurements with the pose info. The pose information comes from the Geo-Referencing Sub-module.
+
+
+.. figure:: ../source/pose.png
+   :alt: pose
+   
+   Example of pose information used for 3D displaying of the device's trajectory
+
+.. autoclass:: rov_ui.pose_subscriber
+   :members:
+
+************************************
+GUI Joystick and Navigation Buttons
+************************************
+
+Although the AUV is meant to be autonomous or operated with a joystick, an additional joystick has beed added to the GUI for those cases when the AUV needs to be teleoperated but there is not a physical joystick available.
+
+
+.. figure:: ../source/joystick.png
+   :alt: Joystick
+   
+   Joystick and buttons from the GUI for teleoperation of the AUV. The joystick allows to move the AUV in front, left and right directions. The UP/DOWN buttons move the AUV up and down in the Z axis. The other two buttons rotate the AUV in anti-clockwise and clockwise directions
+
+.. autoclass:: rov_ui.Joystick_thread
+   :members:
