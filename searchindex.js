@@ -1,0 +1,1 @@
+Search.setIndex({envversion:49,filenames:["GUI_Documentation","index"],objects:{},objnames:{},objtypes:{},terms:{come:0,content:1,github:0,here:0,index:1,modul:1,page:[0,1],search:1},titles:["Introduction","Welcome to STAMS library&#8217;s documentation!"],titleterms:{document:1,indice:1,introduct:0,librari:1,stams:1,tabl:1,welcom:1}})
