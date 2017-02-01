@@ -3,7 +3,7 @@ Introduction
 **********************************
 
 .. image:: ../source/stamslogo.png
-
+   :align: center
 
 
 
@@ -66,6 +66,7 @@ of the GUI. This is done via Opencv using ``CvBridge``
 
 .. figure:: ../source/cvbridge.png
    :alt: conversion from ROS Image message to OpenCV matrix
+   :align: center
    
    conversion from ROS Image message to OpenCV matrix (see `ROS wiki)
    <http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages>`_.
@@ -83,6 +84,7 @@ measurements with the pose info. The pose information comes from the Geo-Referen
 
 .. figure:: ../source/pose.png
    :alt: pose
+   :align: center
    
    Example of pose information used for 3D displaying of the device's trajectory
 
@@ -98,6 +100,7 @@ Although the AUV is meant to be autonomous or operated with a joystick, an addit
 
 .. figure:: ../source/joystick.png
    :alt: Joystick
+   :align: center
    
    Joystick and buttons from the GUI for teleoperation of the AUV. The joystick allows to move the AUV in front, left and right directions. The UP/DOWN buttons move the AUV up and down in the Z axis. The other two buttons rotate the AUV in anti-clockwise and clockwise directions
 

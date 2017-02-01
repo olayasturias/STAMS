@@ -139,7 +139,7 @@
             
   <div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<img alt="_images/stamslogo.png" src="_images/stamslogo.png" />
+<img alt="_images/stamslogo.png" class="align-center" src="_images/stamslogo.png" />
 <div class="section" id="what-is-stams-gui">
 <h2>What is STAMS GUI?<a class="headerlink" href="#what-is-stams-gui" title="Permalink to this headline">¶</a></h2>
 <p>STAMS GUI is the user inteface used with all the devices from STAMS project (see <a class="reference external" href="http://stams-rfcs.eu/">STAMS website.)</a>.</p>
@@ -386,7 +386,7 @@ value changes</p>
 <p>The camera data is sent through a ROS topic with the sensor_msgs/Image format, so it is necessary
 to convert it to a matrix format to make it readable from an external module like it is the case
 of the GUI. This is done via Opencv using <code class="docutils literal"><span class="pre">CvBridge</span></code></p>
-<div class="figure" id="id2">
+<div class="figure align-center" id="id2">
 <img alt="conversion from ROS Image message to OpenCV matrix" src="_images/cvbridge.png" />
 <p class="caption"><span class="caption-text">conversion from ROS Image message to OpenCV matrix (see <a class="reference external" href="http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages">ROS wiki)</a>.</span></p>
 </div>
@@ -445,7 +445,7 @@ to cv image using cv_bridge.</p>
 <h1>Pose information<a class="headerlink" href="#pose-information" title="Permalink to this headline">¶</a></h1>
 <p>The pose information is very important to collect as it is used for stamping of the different
 measurements with the pose info. The pose information comes from the Geo-Referencing Sub-module.</p>
-<div class="figure" id="id3">
+<div class="figure align-center" id="id3">
 <img alt="pose" src="_images/pose.png" />
 <p class="caption"><span class="caption-text">Example of pose information used for 3D displaying of the device&#8217;s trajectory</span></p>
 </div>
@@ -507,7 +507,7 @@ when it differs from the previous one</p>
 <div class="section" id="gui-joystick-and-navigation-buttons">
 <h1>GUI Joystick and Navigation Buttons<a class="headerlink" href="#gui-joystick-and-navigation-buttons" title="Permalink to this headline">¶</a></h1>
 <p>Although the AUV is meant to be autonomous or operated with a joystick, an additional joystick has beed added to the GUI for those cases when the AUV needs to be teleoperated but there is not a physical joystick available.</p>
-<div class="figure" id="id4">
+<div class="figure align-center" id="id4">
 <img alt="Joystick" src="_images/joystick.png" />
 <p class="caption"><span class="caption-text">Joystick and buttons from the GUI for teleoperation of the AUV. The joystick allows to move the AUV in front, left and right directions. The UP/DOWN buttons move the AUV up and down in the Z axis. The other two buttons rotate the AUV in anti-clockwise and clockwise directions</span></p>
 </div>
