@@ -1,0 +1,418 @@
+**********************************
+Introduction
+**********************************
+
+==================================
+What is STAMS GUI?
+==================================
+STAMS GUI is the user inteface used with all the devices from STAMS project (see `STAMS website.)
+<http://stams-rfcs.eu/>`_.
+
+It will allow easier manoeuvre of the different devices, and convenient visualization of the sensor readings.
+
+========================================
+Which devices does STAMS GUI integrate?
+========================================
+
+Different devices need to be monitorized during their deployment. This User Interface will provide a different
+interface for each of them.
+
+Below, there is a table with the different devices integrated with the GUI, the sensor input to be visualized
+and the control commands that the user will be allowed to send. Additionnally, the developing state of the GUI
+for each device is indicated
+
++--------------------------+-----------------------+-----------------------------+--------------------+
+|Device                    |Visualization tools    |Control Commands             | Developing state   |
++==========================+=======================+=============================+====================+
+| | Reference Point        | | Camera              | | Teleoperation/ Autonomous |    On develop      |
+| | Installation Module    | | Pose                | | (6 DOF)                   |                    |
++--------------------------+-----------------------+-----------------------------+--------------------+
+| | Profiling and          | | Profiler Scan       | | UP/DOWN                   |    On develop      |
+| | Collision Avoidance    | | Distance to obstacle|                             |                    |
+| | Sub-module             |                       |                             |                    |
++--------------------------+-----------------------+-----------------------------+--------------------+
+
+**********************************
+Tutorials
+**********************************
+========================================
+Installing ROS Kinetic
+========================================
+
+Note: ROS Kinetic works in Ubuntu 16.04.
+
+-----------------------------------------
+Configure your Ubuntu repositories
+-----------------------------------------
+Configure your Ubuntu repositories to allow "restricted," "universe," and "multiverse." 
+You can follow the `Ubuntu guide <https://help.ubuntu.com/community/Repositories/Ubuntu>`_ for instructions on doing this. 
+
+-----------------------------------------
+Setup your sources.list
+-----------------------------------------
+
+Setup your computer to accept software from packages.ros.org::
+
+  sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+
+-----------------------------------------
+Set up your keys
+-----------------------------------------
+Set up your keys::
+
+  sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
+
+If you experience issues connecting to the keyserver, you can try substituting hkp://pgp.mit.edu:80 or hkp://keyserver.ubuntu.com:80 in the previous command. 
+
+-----------------------------------------
+Installation
+-----------------------------------------
+First, make sure your Debian package index is up-to-date::
+
+  sudo apt update
+
+Now you are  ready to do the Desktop-Full Install: (Recommended) : ROS, rqt, rviz, robot-generic libraries, 2D/3D simulators, navigation and 2D/3D perception::
+
+  sudo apt install ros-kinetic-desktop-full
+
+----------------------------------------
+Initialize rosdep
+----------------------------------------
+Before you can use ROS, you will need to initialize `rosdep`. 
+`rosdep` enables you to easily install system dependencies for source you want to compile and is required to run some core components in ROS:: 
+  
+  sudo rosdep init
+  rosdep update
+
+----------------------------------------
+Environment Setup
+----------------------------------------
+It's convenient if the ROS environment variables are automatically added to your bash session every time a new shell is launched::
+
+  echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
+  source ~/.bashrc
+
+----------------------------------------
+Dependencies for building packages
+----------------------------------------
+Up to now you have installed what you need to run the core ROS packages. To create and manage your own ROS workspaces, there are various tools and requirements that are distributed separately. 
+For example, rosinstall is a frequently used command-line tool that enables you to easily download many source trees for ROS packages with one command.
+
+To install this tool and other dependencies for building ROS packages, run::
+
+  sudo apt-get install python-rosinstall python-rosinstall-generator python-wstool build-essential
+
+
+
+========================================
+Installing the GUI in your computer
+========================================
+
+
+Requisites:
+
+- Having Ubuntu 16.04 as operating system
+- Having ROS Kinetic installed. `Online instructions here. <http://wiki.ros.org/kinetic/Installation/Ubuntu>`_
+- Having the UWSim simulator installed. `Instructions here. <http://www.irs.uji.es/uwsim/wiki/index.php?title=Installing_UWSim>`_
+
+-----------------------------------------
+Preparing the ROS workspace
+-----------------------------------------
+
+You must have a catkin workspace in your computer. If case you don't have it, just open a terminal and follow this steps::
+
+  mkdir -p ~/catkin_ws/src
+  cd ~/catkin_ws/
+  catkin_make
+
+The mkdir command creates a folder called catkin_ws, which has a subfolder called src. The src folder will contain the ROS packages.
+
+With the cd command we are entering into the catkin_ws folder.
+
+Finally, catkin_make runs the workspace (that is, all the source code contained in the src directory).
+
+For more detailed information, `visit this ROS tutorial <http://wiki.ros.org/catkin/Tutorials/create_a_workspace>`_
+
+-----------------------------------------
+Download the GUI's source code
+-----------------------------------------
+
+First of all, you need to open the terminal and go to the source directory of your catkin workspace::
+
+  cd ~/catkin_ws/src
+
+Now, download the ROS package with the GUI by typing::
+
+  git clone https://github.com/olayasturias/stams_gui
+
+The GUI needs the drivers from the sensors in order to operate. Download them with the following commands::
+  
+  git clone https://github.com/olayasturias/tritech_profiler
+  git clone https://github.com/olayasturias/valeport_altimeter
+
+If you are using ROS Kinetic in your pc::
+
+  cd stams_gui
+  git checkout kinetic-devel
+
+If you are using ROS Kinetic in a Raspberry Pi::
+
+  cd stams_gui
+  git checkout kinetic-armhf-devel
+
+Now you have the ROS package with the GUI in your source directory. Go back to your catkin workspace, and source your environment::
+
+  cd ~/catkin_ws
+  source ./devel/setup.bash
+
+install all ROS dependencies by running::
+
+  rosdep update
+  rosdep install stams_gui
+
+And finally build the packages::
+
+  catkin_make
+
+
+========================================
+Launching the GUI
+========================================
+
+The STAMS GUI is built in ROS, and works as a ROS package.
+The first step to follow is open your terminal and go to your catkin workspace::
+
+  cd ~/catkin_ws
+
+Then you must source your environment::
+
+  source ./devel/setup.bash
+
+And now you're ready to launch the GUI::
+
+  roslaunch stams_gui rpim.launch
+
+
+========================================
+Understanding the GUI
+========================================
+This GUI has been designed to be modular and work with the following Modules from STAMS:
+
+- The Reference Points Installation Module
+- The Ultrasonic Inspection Module
+
+It is formed by two tabs:
+
+- The first tab shows information from the ROV and collision avoidance.
+- The second tab shows information from the Ultrasonic Inspection module and collision avoidance, and also the sensors' selection (since they cannot work concurrently). It is called PCAS tab because it can be used only for the PCAS submodule.
+
+Below it is detailed the information about each of the mentioned tabs.
+
+--------------------
+ROV tab
+--------------------
+The ROV tab appears by default when launching the user interface.
+
+.. figure:: ../source/ROVtab.png
+   :alt: Current aspect of the UI
+   :width: 80%
+   
+   ROV tab in the STAMS' GUI with the simulator running.
+
+From left to right, the following displays are available:
+
+  - The ROV camera.
+  - Trajectory drawn by ROV.
+  - Distance information form collision avoidance Sonar.
+
+On the right, the user can select different scenes: simulation or real ROV.
+There is also a Navigation Mode selection: teleoperated or Autonomous.
+
+Below, there is a joystick embedded in the GUI that can be used as an alternative to a real joystick.
+
+--------------------
+PCAS tab
+--------------------
+
+.. figure:: ../source/PCAStab.png
+   :alt: Current aspect of the UI
+   :width: 80%
+   
+   PCAS tab in the STAMS' GUI .
+
+Form left to right, the following displays appear in the PCAS tab:
+
+  - The PointCloud from the Profiling Sonar sensor.
+  - The image from the collision avoidance camera.
+  - Distance information from the collision avoidance sonar.
+
+On the right of the User Interface, different configuration parameters appear, having in account that there is a serial connection through a sincle wireline, and thus the Profiling Sonar and the Altimeter cannot send information concurrently.
+
+.. figure:: ../source/baudrate.png
+   :alt: Current aspect of the UI
+   :width: 40%
+ 
+First, the baudrate of the serial connection can be selected. By default, it is 115200 bauds, which nowadays is the only baudrate at which the sensors can work.
+
+.. figure:: ../source/PS.png
+   :alt: Current aspect of the UI
+   :width: 40%
+
+The Profiling Sonar has the following configuration parameters (the default values should work):
+
+  - The serial port from where it is receiving data
+  - The Power Supply Channel in the SDS board
+  - The Data transmission channel in the SDS board 
+Selecting the "Power Up" Checkbox, will power up the sensor, and unselecting it will power it off.
+Selecting the "Data Transmission" checkbox will make the Profiling Sonar transmit the data through the wireline, while it unselects the "Data Transmission" checkbox of the Altimeter.
+
+.. figure:: ../source/altimeter.png
+   :alt: Current aspect of the UI
+   :width: 40%
+
+The Sonar Altimeter parameters are similar to the Profiling Sonar's:
+
+  - The serial port from where it is receiving data
+  - The Power Supply Channel in the SDS board
+  - The Data transmission channel in the SDS board 
+
+Selecting the "Power Up" Checkbox, will power up the sensor, and unselecting it will power it off.
+Selecting the "Data Transmission" checkbox will make the Altimeter transmit the data through the wireline, while it unselects the "Data Transmission" checkbox of the Profiling Sonar.
+
+.. figure:: ../source/camera.png
+   :alt: Current aspect of the UI
+   :width: 40%
+
+The Collision Avoidance Camera has the following configuration parameters:
+
+  - The serial port from where it is receiving data.
+  - The Power Supply Channel in the SDS board
+
+Selecting the "Power Up" Checkbox, will power up the sensor, and unselecting it will power it off.
+
+
+
+
+
+
+
+
+**********************************
+Code Explanation
+**********************************
+The code is structured in classes.
+Each class accomplishes a determined task, and has the necessary variables and methods (functions).
+
+The main class is the Window definition class, where the window with all its elements are created
+and placed in the correct position, and also the buttons are connected with the required functions.
+
+========================================
+Window Definition
+========================================
+
+The main aspect for the GUI development, is creating the window that contains all the controllers and
+visualizers. Each of them needs a callback function that reads the data input or sends the command.
+
+.. figure:: ../source/gui.png
+   :alt: Current aspect of the UI
+   :width: 100%
+   
+   ROV tab of the STAMS' GUI in simulator mode.
+
+.. autoclass:: rpim.Window
+   :members:
+
+========================================
+Serial Data Switch Parameters
+========================================
+
+The Sensors from the Profiler and Collision Avoidance Sub-Module are all sending information through the same wireline, and thus,
+they cannot transmit information concurrently. A Serial Data Switch has been placed between the PCAS and the computer so the user
+is able to select with which sensor from the PCAS wants to communicate.
+
+
+.. autoclass:: rpim.SDS_Params
+   :members:
+
+
+========================================
+Image processing
+========================================
+
+The camera data is sent through a ROS topic with the sensor_msgs/Image format, so it is necessary
+to convert it to a matrix format to make it readable from an external module like it is the case
+of the GUI. This is done via Opencv using ``CvBridge``
+
+.. figure:: ../source/cvbridge.png
+   :alt: conversion from ROS Image message to OpenCV matrix
+   :align: center
+   :width: 80% 
+
+   conversion from ROS Image message to OpenCV matrix (see `ROS wiki)
+   <http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages>`_.
+
+.. autoclass:: rpim.image_converter
+   :members:
+
+========================================
+Pose information
+========================================
+
+The pose information is very important to collect as it is used for stamping of the different 
+measurements with the pose info. The pose information comes from the Geo-Referencing Sub-module.
+
+
+.. figure:: ../source/pose.png
+   :alt: pose
+   :align: center
+   :width: 80%
+   
+   Example of pose information used for 3D displaying of the device's trajectory
+
+.. autoclass:: rpim.pose_subscriber
+   :members:
+
+========================================
+GUI Joystick and Navigation Buttons
+========================================
+
+Although the AUV is meant to be autonomous or operated with a joystick, an additional joystick has beed added to the GUI for those cases when the AUV needs to be teleoperated but there is not a physical joystick available.
+
+
+.. figure:: ../source/joystick.png
+   :alt: Joystick
+   :align: center
+   :width: 80%
+   
+   Joystick and buttons from the GUI for teleoperation of the AUV. The joystick allows to move the AUV in front, left and right directions. The UP/DOWN buttons move the AUV up and down in the Z axis. The other two buttons rotate the AUV in anti-clockwise and clockwise directions
+
+.. autoclass:: rpim.Joystick_thread
+   :members:
+
+========================================
+Dynamic Configuration
+========================================
+
+.. autoclass:: rpim.ParameterServer_Params
+   :members:
+
+
+========================================
+Special Methods for 3D Display
+========================================
+
+.. autoclass:: rpim.MyGLView
+  :members:
+
+========================================
+Valeport Altimeter Class
+========================================
+.. autoclass:: rpim.altimeter_subscriber
+  :members:
+
+========================================
+Profiling Sonar Class
+========================================
+.. autoclass:: rpim.ProfilingSonar_PC
+  :members:
+
