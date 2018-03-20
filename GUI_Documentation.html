@@ -106,15 +106,16 @@
 <li class="toctree-l3"><a class="reference internal" href="#dependencies-for-building-packages">2.1.7. Dependencies for building packages</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#installing-the-gui-in-your-computer">2.2. Installing the GUI in your computer</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#preparing-the-ros-workspace">2.2.1. Preparing the ROS workspace</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#download-the-gui-s-source-code">2.2.2. Download the GUI’s source code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-python-dependencies">2.2. Installing Python dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-the-gui-in-your-computer">2.3. Installing the GUI in your computer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#preparing-the-ros-workspace">2.3.1. Preparing the ROS workspace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#download-the-gui-s-source-code">2.3.2. Download the GUI’s source code</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#launching-the-gui">2.3. Launching the GUI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#understanding-the-gui">2.4. Understanding the GUI</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#rov-tab">2.4.1. ROV tab</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pcas-tab">2.4.2. PCAS tab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#launching-the-gui">2.4. Launching the GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#understanding-the-gui">2.5. Understanding the GUI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rov-tab">2.5.1. ROV tab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pcas-tab">2.5.2. PCAS tab</a></li>
 </ul>
 </li>
 </ul>
@@ -324,8 +325,31 @@ For example, rosinstall is a frequently used command-line tool that enables you 
 </div>
 </div>
 </div>
+<div class="section" id="installing-python-dependencies">
+<h2>2.2. Installing Python dependencies<a class="headerlink" href="#installing-python-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>The STAMS packages depend on some Python libraries in order to work.
+Before proceeding to the installation of the STAMS packages, we will install those libraries.</p>
+<p>Numpy, Scipy and Matplotlib libraries:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span> <span class="n">numpy</span> <span class="n">scipy</span> <span class="n">matplotlib</span>
+</pre></div>
+</div>
+<p>Python bindings for Qt4:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span> <span class="n">update</span>
+<span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">qt4</span>
+</pre></div>
+</div>
+<p>Bitstring, in order to work with binary data:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">bitstring</span>
+</pre></div>
+</div>
+<p>Pyserial, for serial communication handling:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">pyserial</span>
+</pre></div>
+</div>
+<p>If you notice that there is some missing package when compiling the user interface, please  <a class="reference external" href="mailto:sup&#46;&#46;&#46;&#37;&#52;&#48;oalvarez&#37;&#52;&#48;ing&#46;uc3m&#46;es">notify me<span>&#46;</span></a></p>
+</div>
 <div class="section" id="installing-the-gui-in-your-computer">
-<h2>2.2. Installing the GUI in your computer<a class="headerlink" href="#installing-the-gui-in-your-computer" title="Permalink to this headline">¶</a></h2>
+<h2>2.3. Installing the GUI in your computer<a class="headerlink" href="#installing-the-gui-in-your-computer" title="Permalink to this headline">¶</a></h2>
 <p>Requisites:</p>
 <ul class="simple">
 <li>Having Ubuntu 16.04 as operating system</li>
@@ -333,7 +357,7 @@ For example, rosinstall is a frequently used command-line tool that enables you 
 <li>Having the UWSim simulator installed. <a class="reference external" href="http://www.irs.uji.es/uwsim/wiki/index.php?title=Installing_UWSim">Instructions here.</a></li>
 </ul>
 <div class="section" id="preparing-the-ros-workspace">
-<h3>2.2.1. Preparing the ROS workspace<a class="headerlink" href="#preparing-the-ros-workspace" title="Permalink to this headline">¶</a></h3>
+<h3>2.3.1. Preparing the ROS workspace<a class="headerlink" href="#preparing-the-ros-workspace" title="Permalink to this headline">¶</a></h3>
 <p>You must have a catkin workspace in your computer. If case you don’t have it, just open a terminal and follow this steps:</p>
 <div class="highlight-default"><div class="highlight"><pre><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">~/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span>
 <span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span><span class="o">/</span>
@@ -346,7 +370,7 @@ For example, rosinstall is a frequently used command-line tool that enables you 
 <p>For more detailed information, <a class="reference external" href="http://wiki.ros.org/catkin/Tutorials/create_a_workspace">visit this ROS tutorial</a></p>
 </div>
 <div class="section" id="download-the-gui-s-source-code">
-<h3>2.2.2. Download the GUI’s source code<a class="headerlink" href="#download-the-gui-s-source-code" title="Permalink to this headline">¶</a></h3>
+<h3>2.3.2. Download the GUI’s source code<a class="headerlink" href="#download-the-gui-s-source-code" title="Permalink to this headline">¶</a></h3>
 <p>First of all, you need to open the terminal and go to the source directory of your catkin workspace:</p>
 <div class="highlight-default"><div class="highlight"><pre><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span>
 </pre></div>
@@ -358,16 +382,6 @@ For example, rosinstall is a frequently used command-line tool that enables you 
 <p>The GUI needs the drivers from the sensors in order to operate. Download them with the following commands:</p>
 <div class="highlight-default"><div class="highlight"><pre><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">olayasturias</span><span class="o">/</span><span class="n">tritech_profiler</span>
 <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">olayasturias</span><span class="o">/</span><span class="n">valeport_altimeter</span>
-</pre></div>
-</div>
-<p>If you are using ROS Kinetic in your pc:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">cd</span> <span class="n">stams_gui</span>
-<span class="n">git</span> <span class="n">checkout</span> <span class="n">kinetic</span><span class="o">-</span><span class="n">devel</span>
-</pre></div>
-</div>
-<p>If you are using ROS Kinetic in a Raspberry Pi:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">cd</span> <span class="n">stams_gui</span>
-<span class="n">git</span> <span class="n">checkout</span> <span class="n">kinetic</span><span class="o">-</span><span class="n">armhf</span><span class="o">-</span><span class="n">devel</span>
 </pre></div>
 </div>
 <p>Now you have the ROS package with the GUI in your source directory. Go back to your catkin workspace, and source your environment:</p>
@@ -387,7 +401,7 @@ For example, rosinstall is a frequently used command-line tool that enables you 
 </div>
 </div>
 <div class="section" id="launching-the-gui">
-<h2>2.3. Launching the GUI<a class="headerlink" href="#launching-the-gui" title="Permalink to this headline">¶</a></h2>
+<h2>2.4. Launching the GUI<a class="headerlink" href="#launching-the-gui" title="Permalink to this headline">¶</a></h2>
 <p>The STAMS GUI is built in ROS, and works as a ROS package.
 The first step to follow is open your terminal and go to your catkin workspace:</p>
 <div class="highlight-default"><div class="highlight"><pre><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span>
@@ -403,7 +417,7 @@ The first step to follow is open your terminal and go to your catkin workspace:<
 </div>
 </div>
 <div class="section" id="understanding-the-gui">
-<h2>2.4. Understanding the GUI<a class="headerlink" href="#understanding-the-gui" title="Permalink to this headline">¶</a></h2>
+<h2>2.5. Understanding the GUI<a class="headerlink" href="#understanding-the-gui" title="Permalink to this headline">¶</a></h2>
 <p>This GUI has been designed to be modular and work with the following Modules from STAMS:</p>
 <ul class="simple">
 <li>The Reference Points Installation Module</li>
@@ -416,7 +430,7 @@ The first step to follow is open your terminal and go to your catkin workspace:<
 </ul>
 <p>Below it is detailed the information about each of the mentioned tabs.</p>
 <div class="section" id="rov-tab">
-<h3>2.4.1. ROV tab<a class="headerlink" href="#rov-tab" title="Permalink to this headline">¶</a></h3>
+<h3>2.5.1. ROV tab<a class="headerlink" href="#rov-tab" title="Permalink to this headline">¶</a></h3>
 <p>The ROV tab appears by default when launching the user interface.</p>
 <div class="figure" id="id1">
 <a class="reference internal image-reference" href="_images/ROVtab.png"><img alt="Current aspect of the UI" src="_images/ROVtab.png" style="width: 80%;" /></a>
@@ -435,7 +449,7 @@ There is also a Navigation Mode selection: teleoperated or Autonomous.</p>
 <p>Below, there is a joystick embedded in the GUI that can be used as an alternative to a real joystick.</p>
 </div>
 <div class="section" id="pcas-tab">
-<h3>2.4.2. PCAS tab<a class="headerlink" href="#pcas-tab" title="Permalink to this headline">¶</a></h3>
+<h3>2.5.2. PCAS tab<a class="headerlink" href="#pcas-tab" title="Permalink to this headline">¶</a></h3>
 <div class="figure" id="id2">
 <a class="reference internal image-reference" href="_images/PCAStab.png"><img alt="Current aspect of the UI" src="_images/PCAStab.png" style="width: 80%;" /></a>
 <p class="caption"><span class="caption-text">PCAS tab in the STAMS’ GUI .</span></p>

@@ -103,6 +103,31 @@ To install this tool and other dependencies for building ROS packages, run::
   sudo apt-get install python-rosinstall python-rosinstall-generator python-wstool build-essential
 
 
+========================================
+Installing Python dependencies
+========================================
+The STAMS packages depend on some Python libraries in order to work.
+Before proceeding to the installation of the STAMS packages, we will install those libraries.
+
+Numpy, Scipy and Matplotlib libraries::
+
+  python -m pip install --user numpy scipy matplotlib
+
+Python bindings for Qt4::
+
+  sudo apt update
+  sudo apt install python-qt4
+
+Bitstring, in order to work with binary data::
+
+  sudo pip install bitstring
+
+Pyserial, for serial communication handling::
+
+  sudo apt install pyserial
+
+If you notice that there is some missing package when compiling the user interface, please  `notify me. <mailto:sup...@oalvarez@ing.uc3m.es>`_ 
+
 
 ========================================
 Installing the GUI in your computer
@@ -149,16 +174,6 @@ The GUI needs the drivers from the sensors in order to operate. Download them wi
   
   git clone https://github.com/olayasturias/tritech_profiler
   git clone https://github.com/olayasturias/valeport_altimeter
-
-If you are using ROS Kinetic in your pc::
-
-  cd stams_gui
-  git checkout kinetic-devel
-
-If you are using ROS Kinetic in a Raspberry Pi::
-
-  cd stams_gui
-  git checkout kinetic-armhf-devel
 
 Now you have the ROS package with the GUI in your source directory. Go back to your catkin workspace, and source your environment::
 
