@@ -119,7 +119,13 @@
 <li class="toctree-l2"><a class="reference internal" href="#launching-the-gui">2.4. Launching the GUI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#understanding-the-gui">2.5. Understanding the GUI</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#rov-tab">2.5.1. ROV tab</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pcas-tab">2.5.2. PCAS tab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pcas-tab">2.5.2. PCAS tab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#profiling-sonar">2.5.2.1. Profiling Sonar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sonar-altimeter">2.5.2.2. Sonar Altimeter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#collision-avoidance-camera">2.5.2.3. Collision Avoidance Camera</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#recording-profiling-sonar-data">2.5.2.4. Recording Profiling Sonar data</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -349,6 +355,7 @@ For example, rosinstall is a frequently used command-line tool that enables you 
 Before proceeding to the installation of the STAMS packages, we will install those libraries.</p>
 <p>First of all, install pip, a tool for easy installing python packages:</p>
 <div class="highlight-default"><div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">pip</span>
+<span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pip</span>
 </pre></div>
 </div>
 <p>Numpy, Scipy and Matplotlib libraries:</p>
@@ -430,7 +437,7 @@ Before proceeding to the installation of the STAMS packages, we will install tho
 </pre></div>
 </div>
 <p>It also needs a driver for the BlueROV2 teleoperation:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">patrickelectric</span><span class="o">/</span><span class="n">bluerov_ros_playground</span><span class="o">.</span><span class="n">git</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">patrickelectric</span><span class="o">/</span><span class="n">bluerov_ros_playground</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 </div>
 <p>Now you have the ROS package with the GUI in your source directory. Go back to your catkin workspace, and source your environment:</p>
@@ -509,13 +516,15 @@ There is also a Navigation Mode selection: teleoperated or Autonomous.</p>
 <blockquote>
 <div><ul class="simple">
 <li>The image from the collision avoidance camera (if connected).</li>
-<li>Distance to obstable read from the collision avoidance sonar, and depth information read from the whinch.</li>
+<li>Distance to obstable read from the collision avoidance sonar, depth information read from the whinch, and a record button for the Profiling Sonar data.</li>
 </ul>
 </div></blockquote>
 <p>On the right of the User Interface, different configuration parameters appear, having in account that there is a serial connection through a sincle wireline, and thus the Profiling Sonar and the Altimeter cannot send information concurrently.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="_images/PS.png"><img alt="Current aspect of the UI" src="_images/PS.png" style="width: 30%;" /></a>
 </div>
+<div class="section" id="profiling-sonar">
+<h4>2.5.2.1. Profiling Sonar<a class="headerlink" href="#profiling-sonar" title="Permalink to this headline">¶</a></h4>
 <p>The Profiling Sonar has the following configuration parameters (the default values should work):</p>
 <blockquote>
 <div><ul class="simple">
@@ -529,6 +538,9 @@ Selecting the “Data Transmission” checkbox will make the Profiling Sonar tra
 <div class="figure">
 <a class="reference internal image-reference" href="_images/altimeter.png"><img alt="Current aspect of the UI" src="_images/altimeter.png" style="width: 30%;" /></a>
 </div>
+</div>
+<div class="section" id="sonar-altimeter">
+<h4>2.5.2.2. Sonar Altimeter<a class="headerlink" href="#sonar-altimeter" title="Permalink to this headline">¶</a></h4>
 <p>The Sonar Altimeter parameters are similar to the Profiling Sonar’s:</p>
 <blockquote>
 <div><ul class="simple">
@@ -542,6 +554,9 @@ Selecting the “Data Transmission” checkbox will make the Altimeter transmit 
 <div class="figure">
 <a class="reference internal image-reference" href="_images/camera.png"><img alt="Current aspect of the UI" src="_images/camera.png" style="width: 30%;" /></a>
 </div>
+</div>
+<div class="section" id="collision-avoidance-camera">
+<h4>2.5.2.3. Collision Avoidance Camera<a class="headerlink" href="#collision-avoidance-camera" title="Permalink to this headline">¶</a></h4>
 <p>The Collision Avoidance Camera has the following configuration parameters:</p>
 <blockquote>
 <div><ul class="simple">
@@ -558,6 +573,22 @@ Selecting the “Data Transmission” checkbox will make the Altimeter transmit 
 It only requires to set the port, which never will be the same as that of the profiler and the altimeter.
 Normally, it will be /dev/ttyUSB1</p>
 </div>
+<div class="section" id="recording-profiling-sonar-data">
+<h4>2.5.2.4. Recording Profiling Sonar data<a class="headerlink" href="#recording-profiling-sonar-data" title="Permalink to this headline">¶</a></h4>
+<p>Since it is required from the project not only displayin the data during the deployment, but also saving it for latter visualization, a Record Point Cloud button has been implemented.</p>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="_images/recordbutton.png"><img alt="Current aspect of the UI" src="_images/recordbutton.png" style="width: 50%;" /></a>
+<p class="caption"><span class="caption-text">Left: Record button while not recording. Right: record button while recording.</span></p>
+</div>
+<p>This button works as follows:</p>
+<ul class="simple">
+<li>When NOT recording, the “RECORD” text appears in the button. This means that it is waiting for a recording request.</li>
+<li>After pushing the button, the “STOP RECORD” text will appear, which means that it is recording the file and waiting for a stop recording request.</li>
+</ul>
+<p>The file will be saved in .ply format, with the file being named with the current date and time according to the following format: YYYY-MM-DD-HH-MM-SS.ply</p>
+<p>The software recommended to open this files is <a href="#id8"><span class="problematic" id="id9">CloudCompare_</span></a>,which, apart from visualization, provides many processing capabilities.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="code-explanation">
@@ -570,7 +601,7 @@ and placed in the correct position, and also the buttons are connected with the 
 <h2>3.1. Window Definition<a class="headerlink" href="#window-definition" title="Permalink to this headline">¶</a></h2>
 <p>The main aspect for the GUI development, is creating the window that contains all the controllers and
 visualizers. Each of them needs a callback function that reads the data input or sends the command.</p>
-<div class="figure" id="id3">
+<div class="figure" id="id4">
 <a class="reference internal image-reference" href="_images/gui.png"><img alt="Current aspect of the UI" src="_images/gui.png" style="width: 100%;" /></a>
 <p class="caption"><span class="caption-text">ROV tab of the STAMS’ GUI in simulator mode.</span></p>
 </div>
@@ -892,7 +923,7 @@ required tasks</p>
 <p>The camera data is sent through a ROS topic with the sensor_msgs/Image format, so it is necessary
 to convert it to a matrix format to make it readable from an external module like it is the case
 of the GUI. This is done via Opencv using <code class="docutils literal"><span class="pre">CvBridge</span></code></p>
-<div class="figure align-center" id="id4">
+<div class="figure align-center" id="id5">
 <a class="reference internal image-reference" href="_images/cvbridge.png"><img alt="conversion from ROS Image message to OpenCV matrix" src="_images/cvbridge.png" style="width: 80%;" /></a>
 <p class="caption"><span class="caption-text">conversion from ROS Image message to OpenCV matrix (see <a class="reference external" href="http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages">ROS wiki)</a>.</span></p>
 </div>
@@ -955,7 +986,7 @@ to cv image using cv_bridge.</p>
 <h2>3.4. Pose information<a class="headerlink" href="#pose-information" title="Permalink to this headline">¶</a></h2>
 <p>The pose information is very important to collect as it is used for stamping of the different
 measurements with the pose info. The pose information comes from the Geo-Referencing Sub-module.</p>
-<div class="figure align-center" id="id5">
+<div class="figure align-center" id="id6">
 <a class="reference internal image-reference" href="_images/pose.png"><img alt="pose" src="_images/pose.png" style="width: 80%;" /></a>
 <p class="caption"><span class="caption-text">Example of pose information used for 3D displaying of the device’s trajectory</span></p>
 </div>
@@ -963,7 +994,7 @@ measurements with the pose info. The pose information comes from the Geo-Referen
 <div class="section" id="gui-joystick-and-navigation-buttons">
 <h2>3.5. GUI Joystick and Navigation Buttons<a class="headerlink" href="#gui-joystick-and-navigation-buttons" title="Permalink to this headline">¶</a></h2>
 <p>Although the AUV is meant to be autonomous or operated with a joystick, an additional joystick has beed added to the GUI for those cases when the AUV needs to be teleoperated but there is not a physical joystick available.</p>
-<div class="figure align-center" id="id6">
+<div class="figure align-center" id="id7">
 <a class="reference internal image-reference" href="_images/joystick.png"><img alt="Joystick" src="_images/joystick.png" style="width: 80%;" /></a>
 <p class="caption"><span class="caption-text">Joystick and buttons from the GUI for teleoperation of the AUV. The joystick allows to move the AUV in front, left and right directions. The UP/DOWN buttons move the AUV up and down in the Z axis. The other two buttons rotate the AUV in anti-clockwise and clockwise directions</span></p>
 </div>

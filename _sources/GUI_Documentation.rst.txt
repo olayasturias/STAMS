@@ -137,6 +137,7 @@ Before proceeding to the installation of the STAMS packages, we will install tho
 First of all, install pip, a tool for easy installing python packages::
 
   sudo apt install python-pip
+  sudo pip install --upgrade pip
 
 Numpy, Scipy and Matplotlib libraries::
 
@@ -230,7 +231,7 @@ The GUI needs the drivers from the sensors in order to operate. Download them wi
 
 It also needs a driver for the BlueROV2 teleoperation::
 
-  https://github.com/patrickelectric/bluerov_ros_playground.git
+  git clone https://github.com/patrickelectric/bluerov_ros_playground.git
 
 Now you have the ROS package with the GUI in your source directory. Go back to your catkin workspace, and source your environment::
 
@@ -318,7 +319,7 @@ The PCAS tab appears by default when launching the pcas user interface.
 Form left to right, the following displays appear in the PCAS tab:
 
   - The image from the collision avoidance camera (if connected).
-  - Distance to obstable read from the collision avoidance sonar, and depth information read from the whinch.
+  - Distance to obstable read from the collision avoidance sonar, depth information read from the whinch, and a record button for the Profiling Sonar data.
 
 On the right of the User Interface, different configuration parameters appear, having in account that there is a serial connection through a sincle wireline, and thus the Profiling Sonar and the Altimeter cannot send information concurrently.
 
@@ -326,6 +327,11 @@ On the right of the User Interface, different configuration parameters appear, h
 .. figure:: ../source/PS.png
    :alt: Current aspect of the UI
    :width: 30%
+   
+
+~~~~~~~~~~~~~~~~~~~~~~
+Profiling Sonar
+~~~~~~~~~~~~~~~~~~~~~~
 
 The Profiling Sonar has the following configuration parameters (the default values should work):
 
@@ -335,9 +341,14 @@ The Profiling Sonar has the following configuration parameters (the default valu
 Selecting the "Power Up" Checkbox, will power up the sensor, and unselecting it will power it off.
 Selecting the "Data Transmission" checkbox will make the Profiling Sonar transmit the data through the wireline, while it unselects the "Data Transmission" checkbox of the Altimeter.
 
+
 .. figure:: ../source/altimeter.png
    :alt: Current aspect of the UI
    :width: 30%
+
+~~~~~~~~~~~~~~~~~~~~~~
+Sonar Altimeter
+~~~~~~~~~~~~~~~~~~~~~~
 
 The Sonar Altimeter parameters are similar to the Profiling Sonar's:
 
@@ -351,6 +362,10 @@ Selecting the "Data Transmission" checkbox will make the Altimeter transmit the 
 .. figure:: ../source/camera.png
    :alt: Current aspect of the UI
    :width: 30%
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Collision Avoidance Camera
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Collision Avoidance Camera has the following configuration parameters:
 
@@ -369,6 +384,29 @@ It only requires to set the port, which never will be the same as that of the pr
 Normally, it will be /dev/ttyUSB1
 
 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Recording Profiling Sonar data
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Since it is required from the project not only displayin the data during the deployment, but also saving it for latter visualization, a Record Point Cloud button has been implemented.
+
+.. figure:: ../source/recordbutton.png
+   :alt: Current aspect of the UI
+   :width: 50%
+
+   Left: Record button while not recording. Right: record button while recording.
+
+This button works as follows:
+
+- When NOT recording, the "RECORD" text appears in the button. This means that it is waiting for a recording request.
+- After pushing the button, the "STOP RECORD" text will appear, which means that it is recording the file and waiting for a stop recording request.
+
+The file will be saved in .ply format, with the file being named with the current date and time according to the following format: YYYY-MM-DD-HH-MM-SS.ply
+
+The software recommended to open this files is CloudCompare_,which, apart from visualization, provides many processing capabilities.
+
+.. _CloudCompare http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages
 
 
 **********************************
