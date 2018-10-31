@@ -267,6 +267,50 @@ And now you're ready to launch the GUI. Run the pcas launch when only the pcas i
   roslaunch stams_gui rpim.launch
 
 
+========================================
+Updating the GUI
+========================================
+There is always something to improve, or something to change!
+If you want to update your copy of the software to the last version and make it work in your computer, then you are in the correct section. This procedure can be divided in two steps:
+
+ 1. Downloading the code
+ 2. Compiling it to make it work
+
+---------------------------------------
+Downloading the code
+---------------------------------------
+
+As the code is updated in the github repository, you can download it in your computer. To do this, you will have to open a terminal, and go to the directory of your local copy.
+
+For the User Interface, go to its directory by writing::
+
+  cd ~/catkin_ws/src/stams_gui
+
+For the tritech profiler software::
+
+  cd ~/catkin_ws/src/tritech_profiler
+
+For the valeport altimeter::
+
+  cd ~/catkin_ws/src/valeport_altimeter
+
+Once you are in the directory of the code of interest, you can download its last version by typing::
+
+  git pull origin master
+
+
+And that's it! Your local copy of the repository is up to date.
+
+---------------------------------------
+Compiling the code
+---------------------------------------
+
+Up to this point the last version of the code is downloaded in your computer. Now its time to compile it, so that it can be executed as well. To do this, open the terminal, and then write and execute the following commands::
+
+  cd ~/catkin_ws
+  catkin_make
+
+Now you are ready to execute the software as you always did. However, if any error message appears when executing the catkin_make command, please  `notify me. <mailto:sup...@oalvarez@ing.uc3m.es>`_
 
 ========================================
 Understanding the GUI
