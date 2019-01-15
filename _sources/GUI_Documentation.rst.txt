@@ -251,6 +251,9 @@ And finally build the packages::
 ========================================
 Launching the GUI
 ========================================
+----------------------------------------
+Manually
+----------------------------------------
 
 The STAMS GUI is built in ROS, and works as a ROS package.
 The first step to follow is open your terminal and go to your catkin workspace::
@@ -266,6 +269,35 @@ And now you're ready to launch the GUI. Run the pcas launch when only the pcas i
   roslaunch stams_gui pcas.launch
   roslaunch stams_gui rpim.launch
 
+-----------------------------------------
+Automatically with a script
+-----------------------------------------
+Create a file with the extension .sh (equivalent to a .exe in Windows). Open it with a
+text editor and write the following on it:
+
++----------------------------------+
+|                                  |
+| #!/bin/bash                      |
+|                                  |
+| killall -9 rosmaster             |
+|                                  |
+| killall -9 roscore               |
+|                                  |
+| cd ~/catkin_ws                   |
+|                                  |
+| source ./devel/setup.bash        |
+|                                  |
+| roslaunch stams_gui pcas.launch  |
+|                                  |
++----------------------------------+
+
+This executable file now needs executing permission. To do this, open the
+terminal (press Ctrl+Alt+T) amd do::
+  cd /path/to/target
+  chmod +x the_file_name.sh
+
+Now the file is ready to be executed. Double click on it, select "execute in
+terminal", and  the GUI will launch!
 
 ========================================
 Updating the GUI
@@ -276,81 +308,69 @@ If you want to update your copy of the software to the last version and make it 
  1. Downloading the code
  2. Compiling it to make it work
 
----------------------------------------
-Downloading the code
----------------------------------------
+ Similarly to the GUI launching, it can be done automatically with a scrip file (.sh).
+ The script content is as follows:
 
-As the code is updated in the github repository, you can download it in your computer. To do this, you will have to open a terminal, and go to the directory of your local copy.
++-------------------------------+
+|                               |
+| #!/bin/bash                   |
+|                               |
+| SESSION=$USER                 |
+|                               |
+| cd ~/catkin_ws                |
+|                               |
+| source ./devel/setup.bash     |
+|                               |
+| roscd bluerov_ros_playground/ |
+|                               |
+| git pull origin master        |
+|                               |
+| roscd tritech_profiler/       |
+|                               |
+| git pull origin master        |
+|                               |
+| roscd valeport_altimeter/     |
+|                               |
+| git pull origin master        |
+|                               |
+| roscd stams_gui/              |
+|                               |
+| git pull origin master        |
+|                               |
+| cd ~/catkin_ws                |
+|                               |
+| catkin_make                   |
++-------------------------------+
 
-For the User Interface, go to its directory by writing::
+Again, repeat the steps to make it executable::
+cd /path/to/target
+chmod +x the_file_name.sh
 
-  cd ~/catkin_ws/src/stams_gui
+Now the file is ready to be executed. Double click on it, select "execute in
+terminal", and  the GUI will launch!
 
-For the tritech profiler software::
-
-  cd ~/catkin_ws/src/tritech_profiler
-
-For the valeport altimeter::
-
-  cd ~/catkin_ws/src/valeport_altimeter
-
-Once you are in the directory of the code of interest, you can download its last version by typing::
-
-  git pull origin master
-
-
-And that's it! Your local copy of the repository is up to date.
-
----------------------------------------
-Compiling the code
----------------------------------------
-
-Up to this point the last version of the code is downloaded in your computer. Now its time to compile it, so that it can be executed as well. To do this, open the terminal, and then write and execute the following commands::
-
-  cd ~/catkin_ws
-  catkin_make
-
-Now you are ready to execute the software as you always did. However, if any error message appears when executing the catkin_make command, please  `notify me. <mailto:sup...@oalvarez@ing.uc3m.es>`_
+You are ready to execute the software as you always did. However, if any error message appears when executing the catkin_make command, please  `notify me. <mailto:sup...@oalvarez@ing.uc3m.es>`_
 
 ========================================
-Understanding the GUI
+GUI usage
 ========================================
 This GUI has been designed to be modular and work with the following Modules from STAMS:
 
 - The Reference Points Installation Module
 - The Ultrasonic Inspection Module
 
-It is formed by two tabs:
+The following windows launch when executing the GUI:
 
-- The first tab shows information from the ROV and collision avoidance.
-- The second tab shows information from the Ultrasonic Inspection module and collision avoidance, and also the sensors' selection (since they cannot work concurrently). It is called PCAS tab because it can be used only for the PCAS submodule.
+- The PCAS window: it shows information from the Ultrasonic Inspection module and collision avoidance, and also the sensors' selection (since they cannot work concurrently). It is called PCAS tab because it can be used only for the PCAS submodule.
 
-Below it is detailed the information about each of the mentioned tabs.
+- The RViz window: for sensor visualization, in this case the PointCloud from the Profiling Sonar.
 
---------------------
-ROV tab
---------------------
-The ROV tab appears by default when launching the rpim user interface.
+- The rqt_reconfigure window: this tab is for further configuration of the drivers, and it's more meant for developers. Normally it won't need to be used by the average user.
 
-.. figure:: ../source/ROVtab.png
-   :alt: Current aspect of the UI
-   :width: 80%
-
-   ROV tab in the STAMS' GUI with the simulator running.
-
-From left to right, the following displays are available:
-
-  - The ROV camera.
-  - Trajectory drawn by ROV.
-  - Distance information form collision avoidance Sonar.
-
-On the right, the user can select different scenes: simulation or real ROV.
-There is also a Navigation Mode selection: teleoperated or Autonomous.
-
-Below, there is a joystick embedded in the GUI that can be used as an alternative to a real joystick.
+Below it is detailed the information about each of the mentioned windows.
 
 --------------------
-PCAS tab
+PCAS Window
 --------------------
 The PCAS tab appears by default when launching the pcas user interface.
 
@@ -368,10 +388,7 @@ Form left to right, the following displays appear in the PCAS tab:
 On the right of the User Interface, different configuration parameters appear, having in account that there is a serial connection through a sincle wireline, and thus the Profiling Sonar and the Altimeter cannot send information concurrently.
 
 
-.. figure:: ../source/PS.png
-   :alt: Current aspect of the UI
-   :width: 30%
-   
+
 
 ~~~~~~~~~~~~~~~~~~~~~~
 Profiling Sonar
@@ -382,13 +399,17 @@ The Profiling Sonar has the following configuration parameters (the default valu
   - The serial port from where it is receiving data.
   - The Power Up checkbox.
   - The Data transmission checkbox.
+
+  .. figure:: ../source/PS.png
+     :alt: Current aspect of the UI
+     :width: 30%
+
+
 Selecting the "Power Up" Checkbox, will power up the sensor, and unselecting it will power it off.
 Selecting the "Data Transmission" checkbox will make the Profiling Sonar transmit the data through the wireline, while it unselects the "Data Transmission" checkbox of the Altimeter.
 
 
-.. figure:: ../source/altimeter.png
-   :alt: Current aspect of the UI
-   :width: 30%
+
 
 ~~~~~~~~~~~~~~~~~~~~~~
 Sonar Altimeter
@@ -400,12 +421,13 @@ The Sonar Altimeter parameters are similar to the Profiling Sonar's:
   - The Power Up checkbox.
   - The Data transmission checkbox.
 
+  .. figure:: ../source/altimeter.png
+     :alt: Current aspect of the UI
+     :width: 30%
+
 Selecting the "Power Up" Checkbox, will power up the sensor, and unselecting it will power it off.
 Selecting the "Data Transmission" checkbox will make the Altimeter transmit the data through the wireline, while it unselects the "Data Transmission" checkbox of the Profiling Sonar.
 
-.. figure:: ../source/camera.png
-   :alt: Current aspect of the UI
-   :width: 30%
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Collision Avoidance Camera
@@ -417,13 +439,21 @@ The Collision Avoidance Camera has the following configuration parameters:
   - The Power Up checkbox.
   - The Data transmission checkbox.
 
+  .. figure:: ../source/camera.png
+     :alt: Current aspect of the UI
+     :width: 30%
+
 Selecting the "Power Up" Checkbox, will power up the sensor, and unselecting it will power it off.
+
+~~~~~~~~~~~~~~~~~~~~~~
+Sonar Altimeter
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. figure:: ../source/winch.png
    :alt: winch
    :width: 30%
 
-This sets the configuration to the winch which provides the depth information shown on the left.
+This sets the configuration to the winch which provides the depth information shown on the center of the gui.
 It only requires to set the port, which never will be the same as that of the profiler and the altimeter.
 Normally, it will be /dev/ttyUSB1
 
@@ -433,7 +463,7 @@ Normally, it will be /dev/ttyUSB1
 Recording Profiling Sonar data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Since it is required from the project not only displayin the data during the deployment, but also saving it for latter visualization, a Record Point Cloud button has been implemented.
+Since it is required from the project not only displaying the data during the deployment, but also saving it for latter visualization, a Record Point Cloud button has been implemented.
 
 .. figure:: ../source/recordbutton.png
    :alt: Current aspect of the UI
@@ -446,11 +476,28 @@ This button works as follows:
 - When NOT recording, the "RECORD" text appears in the button. This means that it is waiting for a recording request.
 - After pushing the button, the "STOP RECORD" text will appear, which means that it is recording the file and waiting for a stop recording request.
 
-The file will be saved in .ply format, with the file being named with the current date and time according to the following format: YYYY-MM-DD-HH-MM-SS.ply
+The file will be saved in .ply format in the Documents folder, with the file being named with the current date and time according to the following format: YYYY-MM-DD-HH-MM-SS.ply
 
-The software recommended to open this files is CloudCompare_,which, apart from visualization, provides many processing capabilities.
+The software recommended to open this files is `CloudCompare <https://www.danielgm.net/cc//>`_,which, apart from visualization, provides many processing capabilities.
 
-.. _CloudCompare http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages
+
+--------------------
+RViz Window
+--------------------
+Rviz is a ROS generic visualizator for robots and sensor data.
+Here we will use it for Point Cloud visualization in 3D.
+The 2D data from the Profiling Sonar is fused with the depth information from the whinch
+to form the 3D point cloud with a waterfall display.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configuration for Profiling Sonar Visualization
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*This step only needs to be done once.*
+
+
+----------------------
+rqt reconfigure window
+-----------------------
+
 
 
 **********************************
