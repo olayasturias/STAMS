@@ -488,16 +488,87 @@ Rviz is a ROS generic visualizator for robots and sensor data.
 Here we will use it for Point Cloud visualization in 3D.
 The 2D data from the Profiling Sonar is fused with the depth information from the whinch
 to form the 3D point cloud with a waterfall display.
+
+.. figure:: ../source/rviz.png
+   :alt: winch
+   :width: 100%
+
+   Rviz Window when displaying Profiler data
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Configuration for Profiling Sonar Visualization
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-*This step only needs to be done once.*
+
+**This step only needs to be done once.**
+
+When first launching rviz, a window similar to the one below will appear.
+
+.. figure:: ../source/rviz1.png
+   :alt: winch
+   :width: 100%
+
+1. First, in Displays tab (which is on the left) > Global Options > Fixed Frame, write 'world'. This is the base frame at which all the measurements are refered to.
+
+2. Then, on the right there is the Views tab. On "Type" combo box, select "ThridPersonFollower".
+
+3. After that, also in Views > Current View > Target Frame, write "sonar". With this configuration, the interface will automatically follow the last measurement taken by the sensor.
+
+4. Now we will add the desired sensor data. In Displays Tab, push the "Add" button. The following window will open:
+
+.. figure:: ../source/rviz2.png
+   :alt: winch
+   :width: 70%
+
+These are all the types of data that RViz is able to display. We will look for "PointCloud" and click OK.
+Now, the field "Pointcloud" has been added to the "Displays" tab.
+Click on it to open expand the PointCloud settings.
+
+.. figure:: ../source/rviz3.png
+   :alt: winch
+   :width: 100%
+
+5. On the "Topic" field, write "/tritech_profiler/scan"
+6. On "Style" field, you can choose whatever style is your preferred. It is recommended to use "Spheres".
+7. On "Size", it is recommended to select "10".
+8. On "Decay Time", select how many time (in seconds) do you want to keep the incoming points. Here we chose 600 seconds to keep the incoming points from the last 10 minutes. **This will only affect the online display, not the recording of the file**
+9. On "Color Transformer", select how do you want to display color. It is recommended "AxisColor", to change color with the axis.
+10. On Axis, select the axis to interpolate the color along. It is recommended either X or Y axis.
+11. Save the settings on File (at the top left of the window)> Save Config. Now this configuration will appear every time you launch the gui!
+12. You can hide/show the side tabs by clicking on the arrows.
+
+.. figure:: ../source/rviz4.png
+   :alt: winch
+   :width: 100%
+
+13. If you want to check the value of one point in the PointCloud, go to "Panels" (at the top left, just besides "File") > Selection. A selection tab will be added just on top of "Displays".
+14. Click on Select, so your mouse will be able to select any point in the gui. Click the desired point.
+15. After clicking the point, it will appear on the selection tab. Select it to unfold the Position Data, and click "Position" to unfold the point coordinates. The value is in miliseconds.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+RViz Display Usage
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: ../source/rviz.png
+   :alt: winch
+   :width: 100%
+
+   Rviz Window when displaying Profiler data
+
+If the Rviz is correctly configured, a display similar to the one of the top
+image should appear. The display will automatically follow the last incoming data.
+
+To rotate the view, left click on the window, and move the mouse.
+
+Use the scroll wheel to zoom in and out.
+You can also zoom in and out with right clicking while moving the mouse.
+
+click the scroll button while moving the mouse to move the view left/rigt and top/down.
 
 
-----------------------
+--------------------------
 rqt reconfigure window
------------------------
-
+--------------------------
+For developers.
 
 
 **********************************

@@ -131,7 +131,12 @@
 <li class="toctree-l4"><a class="reference internal" href="#recording-profiling-sonar-data">2.6.1.5. Recording Profiling Sonar data</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#rviz-window">2.6.2. RViz Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rviz-window">2.6.2. RViz Window</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuration-for-profiling-sonar-visualization">2.6.2.1. Configuration for Profiling Sonar Visualization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rviz-display-usage">2.6.2.2. RViz Display Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rqt-reconfigure-window">2.6.3. rqt reconfigure window</a></li>
 </ul>
 </li>
 </ul>
@@ -658,11 +663,69 @@ Normally, it will be /dev/ttyUSB1</p>
 <p>Rviz is a ROS generic visualizator for robots and sensor data.
 Here we will use it for Point Cloud visualization in 3D.
 The 2D data from the Profiling Sonar is fused with the depth information from the whinch
-to form the 3D point cloud with a waterfall display.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Configuration for Profiling Sonar Visualization
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<em>This step only needs to be done once.</em></p>
+to form the 3D point cloud with a waterfall display.</p>
+<div class="figure" id="id5">
+<a class="reference internal image-reference" href="_images/rviz.png"><img alt="winch" src="_images/rviz.png" style="width: 100%;" /></a>
+<p class="caption"><span class="caption-text">Rviz Window when displaying Profiler data</span></p>
+</div>
+<div class="section" id="configuration-for-profiling-sonar-visualization">
+<h4>2.6.2.1. Configuration for Profiling Sonar Visualization<a class="headerlink" href="#configuration-for-profiling-sonar-visualization" title="Permalink to this headline">¶</a></h4>
+<p><strong>This step only needs to be done once.</strong></p>
+<p>When first launching rviz, a window similar to the one below will appear.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="_images/rviz1.png"><img alt="winch" src="_images/rviz1.png" style="width: 100%;" /></a>
+</div>
+<ol class="arabic simple">
+<li>First, in Displays tab (which is on the left) &gt; Global Options &gt; Fixed Frame, write ‘world’. This is the base frame at which all the measurements are refered to.</li>
+<li>Then, on the right there is the Views tab. On “Type” combo box, select “ThridPersonFollower”.</li>
+<li>After that, also in Views &gt; Current View &gt; Target Frame, write “sonar”. With this configuration, the interface will automatically follow the last measurement taken by the sensor.</li>
+<li>Now we will add the desired sensor data. In Displays Tab, push the “Add” button. The following window will open:</li>
+</ol>
+<div class="figure">
+<a class="reference internal image-reference" href="_images/rviz2.png"><img alt="winch" src="_images/rviz2.png" style="width: 70%;" /></a>
+</div>
+<p>These are all the types of data that RViz is able to display. We will look for “PointCloud” and click OK.
+Now, the field “Pointcloud” has been added to the “Displays” tab.
+Click on it to open expand the PointCloud settings.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="_images/rviz3.png"><img alt="winch" src="_images/rviz3.png" style="width: 100%;" /></a>
+</div>
+<ol class="arabic simple" start="5">
+<li>On the “Topic” field, write “/tritech_profiler/scan”</li>
+<li>On “Style” field, you can choose whatever style is your preferred. It is recommended to use “Spheres”.</li>
+<li>On “Size”, it is recommended to select “10”.</li>
+<li>On “Decay Time”, select how many time (in seconds) do you want to keep the incoming points. Here we chose 600 seconds to keep the incoming points from the last 10 minutes. <strong>This will only affect the online display, not the recording of the file</strong></li>
+<li>On “Color Transformer”, select how do you want to display color. It is recommended “AxisColor”, to change color with the axis.</li>
+<li>On Axis, select the axis to interpolate the color along. It is recommended either X or Y axis.</li>
+<li>Save the settings on File (at the top left of the window)&gt; Save Config. Now this configuration will appear every time you launch the gui!</li>
+<li>You can hide/show the side tabs by clicking on the arrows.</li>
+</ol>
+<div class="figure">
+<a class="reference internal image-reference" href="_images/rviz4.png"><img alt="winch" src="_images/rviz4.png" style="width: 100%;" /></a>
+</div>
+<ol class="arabic simple" start="13">
+<li>If you want to check the value of one point in the PointCloud, go to “Panels” (at the top left, just besides “File”) &gt; Selection. A selection tab will be added just on top of “Displays”.</li>
+<li>Click on Select, so your mouse will be able to select any point in the gui. Click the desired point.</li>
+<li>After clicking the point, it will appear on the selection tab. Select it to unfold the Position Data, and click “Position” to unfold the point coordinates. The value is in miliseconds.</li>
+</ol>
+</div>
+<div class="section" id="rviz-display-usage">
+<h4>2.6.2.2. RViz Display Usage<a class="headerlink" href="#rviz-display-usage" title="Permalink to this headline">¶</a></h4>
+<div class="figure" id="id6">
+<a class="reference internal image-reference" href="_images/rviz.png"><img alt="winch" src="_images/rviz.png" style="width: 100%;" /></a>
+<p class="caption"><span class="caption-text">Rviz Window when displaying Profiler data</span></p>
+</div>
+<p>If the Rviz is correctly configured, a display similar to the one of the top
+image should appear. The display will automatically follow the last incoming data.</p>
+<p>To rotate the view, left click on the window, and move the mouse.</p>
+<p>Use the scroll wheel to zoom in and out.
+You can also zoom in and out with right clicking while moving the mouse.</p>
+<p>click the scroll button while moving the mouse to move the view left/rigt and top/down.</p>
+</div>
+</div>
+<div class="section" id="rqt-reconfigure-window">
+<h3>2.6.3. rqt reconfigure window<a class="headerlink" href="#rqt-reconfigure-window" title="Permalink to this headline">¶</a></h3>
+<p>For developers.</p>
 </div>
 </div>
 </div>
@@ -676,7 +739,7 @@ and placed in the correct position, and also the buttons are connected with the 
 <h2>3.1. Window Definition<a class="headerlink" href="#window-definition" title="Permalink to this headline">¶</a></h2>
 <p>The main aspect for the GUI development, is creating the window that contains all the controllers and
 visualizers. Each of them needs a callback function that reads the data input or sends the command.</p>
-<div class="figure" id="id5">
+<div class="figure" id="id7">
 <a class="reference internal image-reference" href="_images/gui.png"><img alt="Current aspect of the UI" src="_images/gui.png" style="width: 100%;" /></a>
 <p class="caption"><span class="caption-text">ROV tab of the STAMS’ GUI in simulator mode.</span></p>
 </div>
@@ -998,7 +1061,7 @@ required tasks</p>
 <p>The camera data is sent through a ROS topic with the sensor_msgs/Image format, so it is necessary
 to convert it to a matrix format to make it readable from an external module like it is the case
 of the GUI. This is done via Opencv using <code class="docutils literal"><span class="pre">CvBridge</span></code></p>
-<div class="figure align-center" id="id6">
+<div class="figure align-center" id="id8">
 <a class="reference internal image-reference" href="_images/cvbridge.png"><img alt="conversion from ROS Image message to OpenCV matrix" src="_images/cvbridge.png" style="width: 80%;" /></a>
 <p class="caption"><span class="caption-text">conversion from ROS Image message to OpenCV matrix (see <a class="reference external" href="http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages">ROS wiki)</a>.</span></p>
 </div>
@@ -1061,7 +1124,7 @@ to cv image using cv_bridge.</p>
 <h2>3.4. Pose information<a class="headerlink" href="#pose-information" title="Permalink to this headline">¶</a></h2>
 <p>The pose information is very important to collect as it is used for stamping of the different
 measurements with the pose info. The pose information comes from the Geo-Referencing Sub-module.</p>
-<div class="figure align-center" id="id7">
+<div class="figure align-center" id="id9">
 <a class="reference internal image-reference" href="_images/pose.png"><img alt="pose" src="_images/pose.png" style="width: 80%;" /></a>
 <p class="caption"><span class="caption-text">Example of pose information used for 3D displaying of the device’s trajectory</span></p>
 </div>
@@ -1069,7 +1132,7 @@ measurements with the pose info. The pose information comes from the Geo-Referen
 <div class="section" id="gui-joystick-and-navigation-buttons">
 <h2>3.5. GUI Joystick and Navigation Buttons<a class="headerlink" href="#gui-joystick-and-navigation-buttons" title="Permalink to this headline">¶</a></h2>
 <p>Although the AUV is meant to be autonomous or operated with a joystick, an additional joystick has beed added to the GUI for those cases when the AUV needs to be teleoperated but there is not a physical joystick available.</p>
-<div class="figure align-center" id="id8">
+<div class="figure align-center" id="id10">
 <a class="reference internal image-reference" href="_images/joystick.png"><img alt="Joystick" src="_images/joystick.png" style="width: 80%;" /></a>
 <p class="caption"><span class="caption-text">Joystick and buttons from the GUI for teleoperation of the AUV. The joystick allows to move the AUV in front, left and right directions. The UP/DOWN buttons move the AUV up and down in the Z axis. The other two buttons rotate the AUV in anti-clockwise and clockwise directions</span></p>
 </div>
