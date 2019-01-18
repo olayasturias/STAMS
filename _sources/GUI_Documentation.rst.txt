@@ -292,9 +292,9 @@ text editor and write the following on it:
 +----------------------------------+
 
 This executable file now needs executing permission. To do this, open the
-terminal (press Ctrl+Alt+T) amd do::
-  cd /path/to/target
-  chmod +x the_file_name.sh
+terminal (press Ctrl+Alt+T) and do::
+	cd /path/to/target
+	chmod +x the_file_name.sh
 
 Now the file is ready to be executed. Double click on it, select "execute in
 terminal", and  the GUI will launch!
@@ -568,11 +568,11 @@ click the scroll button while moving the mouse to move the view left/rigt and to
 --------------------------
 rqt reconfigure window
 --------------------------
-For developers.
+
 
 
 **********************************
-Code Explanation
+GUI Code Documentation
 **********************************
 The code is structured in classes.
 Each class accomplishes a determined task, and has the necessary variables and methods (functions).
@@ -587,13 +587,14 @@ Window Definition
 The main aspect for the GUI development, is creating the window that contains all the controllers and
 visualizers. Each of them needs a callback function that reads the data input or sends the command.
 
-.. figure:: ../source/gui.png
+.. figure:: ../source/PCAStab.png
+
    :alt: Current aspect of the UI
    :width: 100%
 
    ROV tab of the STAMS' GUI in simulator mode.
 
-.. autoclass:: rpim.Window
+.. autoclass:: pcas.Window
    :members:
 
 ========================================
@@ -605,7 +606,7 @@ they cannot transmit information concurrently. A Serial Data Switch has been pla
 is able to select with which sensor from the PCAS wants to communicate.
 
 
-.. autoclass:: rpim.SDS_Params
+.. autoclass:: pcas.SDS_Params
    :members:
 
 
@@ -625,42 +626,17 @@ of the GUI. This is done via Opencv using ``CvBridge``
    conversion from ROS Image message to OpenCV matrix (see `ROS wiki)
    <http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages>`_.
 
-.. autoclass:: rpim.image_converter
+.. autoclass:: pcas.image_converter
    :members:
 
-========================================
-Pose information
-========================================
-
-The pose information is very important to collect as it is used for stamping of the different
-measurements with the pose info. The pose information comes from the Geo-Referencing Sub-module.
-
-
-.. figure:: ../source/pose.png
-   :alt: pose
-   :align: center
-   :width: 80%
-
-   Example of pose information used for 3D displaying of the device's trajectory
-
-.. autoclass:: rpim.pose_subscriber
-   :members:
 
 ========================================
-GUI Joystick and Navigation Buttons
+Depth Subscriber Class
 ========================================
 
-Although the AUV is meant to be autonomous or operated with a joystick, an additional joystick has beed added to the GUI for those cases when the AUV needs to be teleoperated but there is not a physical joystick available.
+The GUI is is subscriber to the winch depth driver so it can fuse the Profiling Sonar data with the depth data
 
-
-.. figure:: ../source/joystick.png
-   :alt: Joystick
-   :align: center
-   :width: 80%
-
-   Joystick and buttons from the GUI for teleoperation of the AUV. The joystick allows to move the AUV in front, left and right directions. The UP/DOWN buttons move the AUV up and down in the Z axis. The other two buttons rotate the AUV in anti-clockwise and clockwise directions
-
-.. autoclass:: rpim.Joystick_thread
+.. autoclass:: pcas.DepthSubscriber
    :members:
 
 ========================================
@@ -671,21 +647,11 @@ Dynamic Configuration
    :members:
 
 
-========================================
-Special Methods for 3D Display
-========================================
-
-.. autoclass:: rpim.MyGLView
-  :members:
 
 ========================================
 Valeport Altimeter Class
 ========================================
-.. autoclass:: rpim.altimeter_subscriber
+.. autoclass:: pcas.altimeter_subscriber
   :members:
 
-========================================
-Profiling Sonar Class
-========================================
-.. autoclass:: rpim.ProfilingSonar_PC
-  :members:
+

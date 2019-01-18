@@ -13,8 +13,6 @@
 
   
   
-  
-  
 
   
 
@@ -45,7 +43,6 @@
 
 <body class="wy-body-for-nav" role="document">
 
-   
   <div class="wy-grid-for-nav">
 
     
@@ -86,10 +83,7 @@
           
             
             
-              
-            
-            
-              <ul class="current">
+                <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#what-is-stams-gui">1.1. What is STAMS GUI?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#which-devices-does-stams-gui-integrate">1.2. Which devices does STAMS GUI integrate?</a><ul>
@@ -113,7 +107,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#installing-dependencies">2.2. Installing Dependencies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installing-the-gui-in-your-computer">2.3. Installing the GUI in your computer</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#preparing-the-ros-workspace">2.3.1. Preparing the ROS workspace</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#download-the-gui-s-source-code">2.3.2. Download the GUI’s source code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#download-the-gui-s-source-code">2.3.2. Download the GUI&#8217;s source code</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#launching-the-gui">2.4. Launching the GUI</a><ul>
@@ -141,16 +135,13 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#code-explanation">3. Code Explanation</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="#gui-code-documentation">3. GUI Code Documentation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#window-definition">3.1. Window Definition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#serial-data-switch-parameters">3.2. Serial Data Switch Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#image-processing">3.3. Image processing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pose-information">3.4. Pose information</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#gui-joystick-and-navigation-buttons">3.5. GUI Joystick and Navigation Buttons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#dynamic-configuration">3.6. Dynamic Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#special-methods-for-3d-display">3.7. Special Methods for 3D Display</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#valeport-altimeter-class">3.8. Valeport Altimeter Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#profiling-sonar-class">3.9. Profiling Sonar Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#depth-subscriber-class">3.4. Depth Subscriber Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dynamic-configuration">3.5. Dynamic Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#valeport-altimeter-class">3.6. Valeport Altimeter Class</a></li>
 </ul>
 </li>
 </ul>
@@ -165,10 +156,8 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">STAMS' gui</a>
-        
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">STAMS' gui</a>
       </nav>
 
 
@@ -177,40 +166,23 @@
         <div class="rst-content">
           
 
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
-
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html">Docs</a> &raquo;</li>
-        
-      <li>1. Introduction</li>
-    
-    
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>1. Introduction</li>
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/GUI_Documentation.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -304,7 +276,7 @@ This forms the PCAS (Profiling and Collision Avoidance Sub-Module), which is als
 <p>Note: ROS Kinetic works in Ubuntu 16.04.</p>
 <div class="section" id="configure-your-ubuntu-repositories">
 <h3>2.1.1. Configure your Ubuntu repositories<a class="headerlink" href="#configure-your-ubuntu-repositories" title="Permalink to this headline">¶</a></h3>
-<p>Configure your Ubuntu repositories to allow “restricted,” “universe,” and “multiverse.”
+<p>Configure your Ubuntu repositories to allow &#8220;restricted,&#8221; &#8220;universe,&#8221; and &#8220;multiverse.&#8221;
 You can follow the <a class="reference external" href="https://help.ubuntu.com/community/Repositories/Ubuntu">Ubuntu guide</a> for instructions on doing this.</p>
 </div>
 <div class="section" id="setup-your-sources-list">
@@ -344,7 +316,7 @@ You can follow the <a class="reference external" href="https://help.ubuntu.com/c
 </div>
 <div class="section" id="environment-setup">
 <h3>2.1.6. Environment Setup<a class="headerlink" href="#environment-setup" title="Permalink to this headline">¶</a></h3>
-<p>It’s convenient if the ROS environment variables are automatically added to your bash session every time a new shell is launched:</p>
+<p>It&#8217;s convenient if the ROS environment variables are automatically added to your bash session every time a new shell is launched:</p>
 <div class="highlight-default"><div class="highlight"><pre><span class="n">echo</span> <span class="s2">&quot;source /opt/ros/kinetic/setup.bash&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">~/.</span><span class="n">bashrc</span>
 <span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
 </pre></div>
@@ -421,7 +393,7 @@ Before proceeding to the installation of the STAMS packages, we will install tho
 </ul>
 <div class="section" id="preparing-the-ros-workspace">
 <h3>2.3.1. Preparing the ROS workspace<a class="headerlink" href="#preparing-the-ros-workspace" title="Permalink to this headline">¶</a></h3>
-<p>You must have a catkin workspace in your computer. If case you don’t have it, just open a terminal and follow this steps:</p>
+<p>You must have a catkin workspace in your computer. If case you don&#8217;t have it, just open a terminal and follow this steps:</p>
 <div class="highlight-default"><div class="highlight"><pre><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">~/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span>
 <span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span><span class="o">/</span>
 <span class="n">catkin_make</span>
@@ -433,7 +405,7 @@ Before proceeding to the installation of the STAMS packages, we will install tho
 <p>For more detailed information, <a class="reference external" href="http://wiki.ros.org/catkin/Tutorials/create_a_workspace">visit this ROS tutorial</a></p>
 </div>
 <div class="section" id="download-the-gui-s-source-code">
-<h3>2.3.2. Download the GUI’s source code<a class="headerlink" href="#download-the-gui-s-source-code" title="Permalink to this headline">¶</a></h3>
+<h3>2.3.2. Download the GUI&#8217;s source code<a class="headerlink" href="#download-the-gui-s-source-code" title="Permalink to this headline">¶</a></h3>
 <p>First of all, you need to open the terminal and go to the source directory of your catkin workspace:</p>
 <div class="highlight-default"><div class="highlight"><pre><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span>
 </pre></div>
@@ -480,7 +452,7 @@ The first step to follow is open your terminal and go to your catkin workspace:<
 <div class="highlight-default"><div class="highlight"><pre><span class="n">source</span> <span class="o">./</span><span class="n">devel</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">bash</span>
 </pre></div>
 </div>
-<p>And now you’re ready to launch the GUI. Run the pcas launch when only the pcas is installed, or the rpim with ROV and PCAS:</p>
+<p>And now you&#8217;re ready to launch the GUI. Run the pcas launch when only the pcas is installed, or the rpim with ROV and PCAS:</p>
 <div class="highlight-default"><div class="highlight"><pre><span class="n">roslaunch</span> <span class="n">stams_gui</span> <span class="n">pcas</span><span class="o">.</span><span class="n">launch</span>
 <span class="n">roslaunch</span> <span class="n">stams_gui</span> <span class="n">rpim</span><span class="o">.</span><span class="n">launch</span>
 </pre></div>
@@ -506,13 +478,13 @@ text editor and write the following on it:</p>
 </tbody>
 </table>
 <p>This executable file now needs executing permission. To do this, open the
-terminal (press Ctrl+Alt+T) amd do:</p>
+terminal (press Ctrl+Alt+T) and do:</p>
 <div class="highlight-default"><div class="highlight"><pre><span class="n">cd</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">target</span>
 <span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="n">the_file_name</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
-<p>Now the file is ready to be executed. Double click on it, select “execute in
-terminal”, and  the GUI will launch!</p>
+<p>Now the file is ready to be executed. Double click on it, select &#8220;execute in
+terminal&#8221;, and  the GUI will launch!</p>
 </div>
 </div>
 <div class="section" id="updating-the-gui">
@@ -553,8 +525,8 @@ The script content is as follows:</p>
 <p>Again, repeat the steps to make it executable::
 cd /path/to/target
 chmod +x the_file_name.sh</p>
-<p>Now the file is ready to be executed. Double click on it, select “execute in
-terminal”, and  the GUI will launch!</p>
+<p>Now the file is ready to be executed. Double click on it, select &#8220;execute in
+terminal&#8221;, and  the GUI will launch!</p>
 <p>You are ready to execute the software as you always did. However, if any error message appears when executing the catkin_make command, please  <a class="reference external" href="mailto:sup&#46;&#46;&#46;&#37;&#52;&#48;oalvarez&#37;&#52;&#48;ing&#46;uc3m&#46;es">notify me<span>&#46;</span></a></p>
 </div>
 <div class="section" id="gui-usage">
@@ -566,9 +538,9 @@ terminal”, and  the GUI will launch!</p>
 </ul>
 <p>The following windows launch when executing the GUI:</p>
 <ul class="simple">
-<li>The PCAS window: it shows information from the Ultrasonic Inspection module and collision avoidance, and also the sensors’ selection (since they cannot work concurrently). It is called PCAS tab because it can be used only for the PCAS submodule.</li>
+<li>The PCAS window: it shows information from the Ultrasonic Inspection module and collision avoidance, and also the sensors&#8217; selection (since they cannot work concurrently). It is called PCAS tab because it can be used only for the PCAS submodule.</li>
 <li>The RViz window: for sensor visualization, in this case the PointCloud from the Profiling Sonar.</li>
-<li>The rqt_reconfigure window: this tab is for further configuration of the drivers, and it’s more meant for developers. Normally it won’t need to be used by the average user.</li>
+<li>The rqt_reconfigure window: this tab is for further configuration of the drivers, and it&#8217;s more meant for developers. Normally it won&#8217;t need to be used by the average user.</li>
 </ul>
 <p>Below it is detailed the information about each of the mentioned windows.</p>
 <div class="section" id="pcas-window">
@@ -576,7 +548,7 @@ terminal”, and  the GUI will launch!</p>
 <p>The PCAS tab appears by default when launching the pcas user interface.</p>
 <div class="figure" id="id3">
 <a class="reference internal image-reference" href="_images/PCAStab.png"><img alt="Current aspect of the UI" src="_images/PCAStab.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-text">PCAS tab in the STAMS’ GUI .</span></p>
+<p class="caption"><span class="caption-text">PCAS tab in the STAMS&#8217; GUI .</span></p>
 </div>
 <p>Form left to right, the following displays appear in the PCAS tab:</p>
 <blockquote>
@@ -599,12 +571,12 @@ terminal”, and  the GUI will launch!</p>
 <a class="reference internal image-reference" href="_images/PS.png"><img alt="Current aspect of the UI" src="_images/PS.png" style="width: 30%;" /></a>
 </div>
 </div></blockquote>
-<p>Selecting the “Power Up” Checkbox, will power up the sensor, and unselecting it will power it off.
-Selecting the “Data Transmission” checkbox will make the Profiling Sonar transmit the data through the wireline, while it unselects the “Data Transmission” checkbox of the Altimeter.</p>
+<p>Selecting the &#8220;Power Up&#8221; Checkbox, will power up the sensor, and unselecting it will power it off.
+Selecting the &#8220;Data Transmission&#8221; checkbox will make the Profiling Sonar transmit the data through the wireline, while it unselects the &#8220;Data Transmission&#8221; checkbox of the Altimeter.</p>
 </div>
 <div class="section" id="sonar-altimeter">
 <h4>2.6.1.2. Sonar Altimeter<a class="headerlink" href="#sonar-altimeter" title="Permalink to this headline">¶</a></h4>
-<p>The Sonar Altimeter parameters are similar to the Profiling Sonar’s:</p>
+<p>The Sonar Altimeter parameters are similar to the Profiling Sonar&#8217;s:</p>
 <blockquote>
 <div><ul class="simple">
 <li>The serial port from where it is receiving data.</li>
@@ -615,8 +587,8 @@ Selecting the “Data Transmission” checkbox will make the Profiling Sonar tra
 <a class="reference internal image-reference" href="_images/altimeter.png"><img alt="Current aspect of the UI" src="_images/altimeter.png" style="width: 30%;" /></a>
 </div>
 </div></blockquote>
-<p>Selecting the “Power Up” Checkbox, will power up the sensor, and unselecting it will power it off.
-Selecting the “Data Transmission” checkbox will make the Altimeter transmit the data through the wireline, while it unselects the “Data Transmission” checkbox of the Profiling Sonar.</p>
+<p>Selecting the &#8220;Power Up&#8221; Checkbox, will power up the sensor, and unselecting it will power it off.
+Selecting the &#8220;Data Transmission&#8221; checkbox will make the Altimeter transmit the data through the wireline, while it unselects the &#8220;Data Transmission&#8221; checkbox of the Profiling Sonar.</p>
 </div>
 <div class="section" id="collision-avoidance-camera">
 <h4>2.6.1.3. Collision Avoidance Camera<a class="headerlink" href="#collision-avoidance-camera" title="Permalink to this headline">¶</a></h4>
@@ -631,7 +603,7 @@ Selecting the “Data Transmission” checkbox will make the Altimeter transmit 
 <a class="reference internal image-reference" href="_images/camera.png"><img alt="Current aspect of the UI" src="_images/camera.png" style="width: 30%;" /></a>
 </div>
 </div></blockquote>
-<p>Selecting the “Power Up” Checkbox, will power up the sensor, and unselecting it will power it off.</p>
+<p>Selecting the &#8220;Power Up&#8221; Checkbox, will power up the sensor, and unselecting it will power it off.</p>
 </div>
 <div class="section" id="id2">
 <h4>2.6.1.4. Sonar Altimeter<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
@@ -651,8 +623,8 @@ Normally, it will be /dev/ttyUSB1</p>
 </div>
 <p>This button works as follows:</p>
 <ul class="simple">
-<li>When NOT recording, the “RECORD” text appears in the button. This means that it is waiting for a recording request.</li>
-<li>After pushing the button, the “STOP RECORD” text will appear, which means that it is recording the file and waiting for a stop recording request.</li>
+<li>When NOT recording, the &#8220;RECORD&#8221; text appears in the button. This means that it is waiting for a recording request.</li>
+<li>After pushing the button, the &#8220;STOP RECORD&#8221; text will appear, which means that it is recording the file and waiting for a stop recording request.</li>
 </ul>
 <p>The file will be saved in .ply format in the Documents folder, with the file being named with the current date and time according to the following format: YYYY-MM-DD-HH-MM-SS.ply</p>
 <p>The software recommended to open this files is <a class="reference external" href="https://www.danielgm.net/cc//">CloudCompare</a>,which, apart from visualization, provides many processing capabilities.</p>
@@ -676,26 +648,26 @@ to form the 3D point cloud with a waterfall display.</p>
 <a class="reference internal image-reference" href="_images/rviz1.png"><img alt="winch" src="_images/rviz1.png" style="width: 100%;" /></a>
 </div>
 <ol class="arabic simple">
-<li>First, in Displays tab (which is on the left) &gt; Global Options &gt; Fixed Frame, write ‘world’. This is the base frame at which all the measurements are refered to.</li>
-<li>Then, on the right there is the Views tab. On “Type” combo box, select “ThridPersonFollower”.</li>
-<li>After that, also in Views &gt; Current View &gt; Target Frame, write “sonar”. With this configuration, the interface will automatically follow the last measurement taken by the sensor.</li>
-<li>Now we will add the desired sensor data. In Displays Tab, push the “Add” button. The following window will open:</li>
+<li>First, in Displays tab (which is on the left) &gt; Global Options &gt; Fixed Frame, write &#8216;world&#8217;. This is the base frame at which all the measurements are refered to.</li>
+<li>Then, on the right there is the Views tab. On &#8220;Type&#8221; combo box, select &#8220;ThridPersonFollower&#8221;.</li>
+<li>After that, also in Views &gt; Current View &gt; Target Frame, write &#8220;sonar&#8221;. With this configuration, the interface will automatically follow the last measurement taken by the sensor.</li>
+<li>Now we will add the desired sensor data. In Displays Tab, push the &#8220;Add&#8221; button. The following window will open:</li>
 </ol>
 <div class="figure">
 <a class="reference internal image-reference" href="_images/rviz2.png"><img alt="winch" src="_images/rviz2.png" style="width: 70%;" /></a>
 </div>
-<p>These are all the types of data that RViz is able to display. We will look for “PointCloud” and click OK.
-Now, the field “Pointcloud” has been added to the “Displays” tab.
+<p>These are all the types of data that RViz is able to display. We will look for &#8220;PointCloud&#8221; and click OK.
+Now, the field &#8220;Pointcloud&#8221; has been added to the &#8220;Displays&#8221; tab.
 Click on it to open expand the PointCloud settings.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="_images/rviz3.png"><img alt="winch" src="_images/rviz3.png" style="width: 100%;" /></a>
 </div>
 <ol class="arabic simple" start="5">
-<li>On the “Topic” field, write “/tritech_profiler/scan”</li>
-<li>On “Style” field, you can choose whatever style is your preferred. It is recommended to use “Spheres”.</li>
-<li>On “Size”, it is recommended to select “10”.</li>
-<li>On “Decay Time”, select how many time (in seconds) do you want to keep the incoming points. Here we chose 600 seconds to keep the incoming points from the last 10 minutes. <strong>This will only affect the online display, not the recording of the file</strong></li>
-<li>On “Color Transformer”, select how do you want to display color. It is recommended “AxisColor”, to change color with the axis.</li>
+<li>On the &#8220;Topic&#8221; field, write &#8220;/tritech_profiler/scan&#8221;</li>
+<li>On &#8220;Style&#8221; field, you can choose whatever style is your preferred. It is recommended to use &#8220;Spheres&#8221;.</li>
+<li>On &#8220;Size&#8221;, it is recommended to select &#8220;10&#8221;.</li>
+<li>On &#8220;Decay Time&#8221;, select how many time (in seconds) do you want to keep the incoming points. Here we chose 600 seconds to keep the incoming points from the last 10 minutes. <strong>This will only affect the online display, not the recording of the file</strong></li>
+<li>On &#8220;Color Transformer&#8221;, select how do you want to display color. It is recommended &#8220;AxisColor&#8221;, to change color with the axis.</li>
 <li>On Axis, select the axis to interpolate the color along. It is recommended either X or Y axis.</li>
 <li>Save the settings on File (at the top left of the window)&gt; Save Config. Now this configuration will appear every time you launch the gui!</li>
 <li>You can hide/show the side tabs by clicking on the arrows.</li>
@@ -704,9 +676,9 @@ Click on it to open expand the PointCloud settings.</p>
 <a class="reference internal image-reference" href="_images/rviz4.png"><img alt="winch" src="_images/rviz4.png" style="width: 100%;" /></a>
 </div>
 <ol class="arabic simple" start="13">
-<li>If you want to check the value of one point in the PointCloud, go to “Panels” (at the top left, just besides “File”) &gt; Selection. A selection tab will be added just on top of “Displays”.</li>
+<li>If you want to check the value of one point in the PointCloud, go to &#8220;Panels&#8221; (at the top left, just besides &#8220;File&#8221;) &gt; Selection. A selection tab will be added just on top of &#8220;Displays&#8221;.</li>
 <li>Click on Select, so your mouse will be able to select any point in the gui. Click the desired point.</li>
-<li>After clicking the point, it will appear on the selection tab. Select it to unfold the Position Data, and click “Position” to unfold the point coordinates. The value is in miliseconds.</li>
+<li>After clicking the point, it will appear on the selection tab. Select it to unfold the Position Data, and click &#8220;Position&#8221; to unfold the point coordinates. The value is in miliseconds.</li>
 </ol>
 </div>
 <div class="section" id="rviz-display-usage">
@@ -725,12 +697,11 @@ You can also zoom in and out with right clicking while moving the mouse.</p>
 </div>
 <div class="section" id="rqt-reconfigure-window">
 <h3>2.6.3. rqt reconfigure window<a class="headerlink" href="#rqt-reconfigure-window" title="Permalink to this headline">¶</a></h3>
-<p>For developers.</p>
 </div>
 </div>
 </div>
-<div class="section" id="code-explanation">
-<h1>3. Code Explanation<a class="headerlink" href="#code-explanation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="gui-code-documentation">
+<h1>3. GUI Code Documentation<a class="headerlink" href="#gui-code-documentation" title="Permalink to this headline">¶</a></h1>
 <p>The code is structured in classes.
 Each class accomplishes a determined task, and has the necessary variables and methods (functions).</p>
 <p>The main class is the Window definition class, where the window with all its elements are created
@@ -739,129 +710,137 @@ and placed in the correct position, and also the buttons are connected with the 
 <h2>3.1. Window Definition<a class="headerlink" href="#window-definition" title="Permalink to this headline">¶</a></h2>
 <p>The main aspect for the GUI development, is creating the window that contains all the controllers and
 visualizers. Each of them needs a callback function that reads the data input or sends the command.</p>
-<div class="figure" id="id7">
-<a class="reference internal image-reference" href="_images/gui.png"><img alt="Current aspect of the UI" src="_images/gui.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-text">ROV tab of the STAMS’ GUI in simulator mode.</span></p>
+<div class="figure">
+<img alt="_images/PCAStab.png" src="_images/PCAStab.png" />
 </div>
 <dl class="class">
-<dt id="rpim.Window">
-<em class="property">class </em><code class="descclassname">rpim.</code><code class="descname">Window</code><a class="reference internal" href="_modules/rpim.html#Window"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.Window" title="Permalink to this definition">¶</a></dt>
+<dt id="pcas.Window">
+<em class="property">class </em><code class="descclassname">pcas.</code><code class="descname">Window</code><a class="reference internal" href="_modules/pcas.html#Window"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.Window" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>Window</em> class inherits from QtGui.QWidget class.
 In this class the UI for the different hardware devices is created</p>
 <p><strong>Attributes</strong>:</p>
 <blockquote>
 <div><dl class="data">
-<dt id="rpim.Window.lblgui">
-<code class="descname">lblgui</code><a class="headerlink" href="#rpim.Window.lblgui" title="Permalink to this definition">¶</a></dt>
+<dt id="Window.lblgui">
+<code class="descname">lblgui</code><a class="headerlink" href="#Window.lblgui" title="Permalink to this definition">¶</a></dt>
 <dd><p>lblgui is the text that labels the scene selection combo box</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="rpim.Window.lblnav">
-<code class="descname">lblnav</code><a class="headerlink" href="#rpim.Window.lblnav" title="Permalink to this definition">¶</a></dt>
+<dt id="Window.lblnav">
+<code class="descname">lblnav</code><a class="headerlink" href="#Window.lblnav" title="Permalink to this definition">¶</a></dt>
 <dd><p>lblnav is the text that labels the Navigation mode combo box</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="rpim.Window.lblnavpcas">
-<code class="descname">lblnavpcas</code><a class="headerlink" href="#rpim.Window.lblnavpcas" title="Permalink to this definition">¶</a></dt>
-<dd><p>lblnavpcas is the text that labels the Navigation buttons for pcas</p>
+<dt id="Window.lblrecord">
+<code class="descname">lblrecord</code><a class="headerlink" href="#Window.lblrecord" title="Permalink to this definition">¶</a></dt>
+<dd><p>lblrecord is the text that labels the Recording buttons for pcas</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="rpim.Window.guimode">
-<code class="descname">guimode</code><a class="headerlink" href="#rpim.Window.guimode" title="Permalink to this definition">¶</a></dt>
+<dt id="Window.guimode">
+<code class="descname">guimode</code><a class="headerlink" href="#Window.guimode" title="Permalink to this definition">¶</a></dt>
 <dd><p>is the combo box that chooses between simulator o real device</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="rpim.Window.navmode">
-<code class="descname">navmode</code><a class="headerlink" href="#rpim.Window.navmode" title="Permalink to this definition">¶</a></dt>
+<dt id="Window.navmode">
+<code class="descname">navmode</code><a class="headerlink" href="#Window.navmode" title="Permalink to this definition">¶</a></dt>
 <dd><p>navmode is the combo box that chooses between teleoperated or autonomous navigation</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="rpim.Window.jb">
-<code class="descname">jb</code><a class="headerlink" href="#rpim.Window.jb" title="Permalink to this definition">¶</a></dt>
+<dt id="Window.jb">
+<code class="descname">jb</code><a class="headerlink" href="#Window.jb" title="Permalink to this definition">¶</a></dt>
 <dd><p>joystick button instance from pyqtgraph</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="rpim.Window.jthread">
-<code class="descname">jthread</code><a class="headerlink" href="#rpim.Window.jthread" title="Permalink to this definition">¶</a></dt>
+<dt id="Window.jthread">
+<code class="descname">jthread</code><a class="headerlink" href="#Window.jthread" title="Permalink to this definition">¶</a></dt>
 <dd><p>joystick thread instance</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="rpim.Window.btnLEFT">
-<code class="descname">btnLEFT</code><a class="headerlink" href="#rpim.Window.btnLEFT" title="Permalink to this definition">¶</a></dt>
+<dt id="Window.btnLEFT">
+<code class="descname">btnLEFT</code><a class="headerlink" href="#Window.btnLEFT" title="Permalink to this definition">¶</a></dt>
 <dd><p>navigation button which moves the ROV to the left</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="rpim.Window.btnLEFTpcas">
-<code class="descname">btnLEFTpcas</code><a class="headerlink" href="#rpim.Window.btnLEFTpcas" title="Permalink to this definition">¶</a></dt>
+<dt id="Window.btnLEFTpcas">
+<code class="descname">btnLEFTpcas</code><a class="headerlink" href="#Window.btnLEFTpcas" title="Permalink to this definition">¶</a></dt>
 <dd><p>navigation button which rotates the RPIM anti-clockwise</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="rpim.Window.btnRGT">
-<code class="descname">btnRGT</code><a class="headerlink" href="#rpim.Window.btnRGT" title="Permalink to this definition">¶</a></dt>
+<dt id="Window.btnRGT">
+<code class="descname">btnRGT</code><a class="headerlink" href="#Window.btnRGT" title="Permalink to this definition">¶</a></dt>
 <dd><p>navigation button which moves the ROV to the right</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="rpim.Window.btnRGTpcas">
-<code class="descname">btnRGTpcas</code><a class="headerlink" href="#rpim.Window.btnRGTpcas" title="Permalink to this definition">¶</a></dt>
+<dt id="Window.btnRGTpcas">
+<code class="descname">btnRGTpcas</code><a class="headerlink" href="#Window.btnRGTpcas" title="Permalink to this definition">¶</a></dt>
 <dd><p>navigation button which rotates the RPIM clockwise</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="rpim.Window.btnUP">
-<code class="descname">btnUP</code><a class="headerlink" href="#rpim.Window.btnUP" title="Permalink to this definition">¶</a></dt>
+<dt id="Window.btnUP">
+<code class="descname">btnUP</code><a class="headerlink" href="#Window.btnUP" title="Permalink to this definition">¶</a></dt>
 <dd><p>navigation button which moves the ROV up</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="rpim.Window.btnUPpcas">
-<code class="descname">btnUPpcas</code><a class="headerlink" href="#rpim.Window.btnUPpcas" title="Permalink to this definition">¶</a></dt>
+<dt id="Window.btnUPpcas">
+<code class="descname">btnUPpcas</code><a class="headerlink" href="#Window.btnUPpcas" title="Permalink to this definition">¶</a></dt>
 <dd><p>navigation button which moves the RPIM up</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="rpim.Window.btnDOWN">
-<code class="descname">btnDOWN</code><a class="headerlink" href="#rpim.Window.btnDOWN" title="Permalink to this definition">¶</a></dt>
+<dt id="Window.btnDOWN">
+<code class="descname">btnDOWN</code><a class="headerlink" href="#Window.btnDOWN" title="Permalink to this definition">¶</a></dt>
 <dd><p>navigation button which moves the ROV down</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="rpim.Window.btnDOWNpcas">
-<code class="descname">btnDOWNpcas</code><a class="headerlink" href="#rpim.Window.btnDOWNpcas" title="Permalink to this definition">¶</a></dt>
+<dt id="Window.btnDOWNpcas">
+<code class="descname">btnDOWNpcas</code><a class="headerlink" href="#Window.btnDOWNpcas" title="Permalink to this definition">¶</a></dt>
 <dd><p>navigation button which moves the RPIM down</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="rpim.Window.imgwin">
-<code class="descname">imgwin</code><a class="headerlink" href="#rpim.Window.imgwin" title="Permalink to this definition">¶</a></dt>
+<dt id="Window.imgwin">
+<code class="descname">imgwin</code><a class="headerlink" href="#Window.imgwin" title="Permalink to this definition">¶</a></dt>
 <dd><p>instance of GraphicsLayoutWidget from pyqtgraph to show images</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="rpim.Window.win">
-<code class="descname">win</code><a class="headerlink" href="#rpim.Window.win" title="Permalink to this definition">¶</a></dt>
+<dt id="Window.win">
+<code class="descname">win</code><a class="headerlink" href="#Window.win" title="Permalink to this definition">¶</a></dt>
 <dd><p>instance of GLViewWidget where a GLScatterPlotItem will be added to show the trajectory</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="rpim.Window.pcas">
-<code class="descname">pcas</code><a class="headerlink" href="#rpim.Window.pcas" title="Permalink to this definition">¶</a></dt>
+<dt id="Window.pcas">
+<code class="descname">pcas</code><a class="headerlink" href="#Window.pcas" title="Permalink to this definition">¶</a></dt>
 <dd><p>instance of MyGLView where a GLScatterPlotItem will be added to show point cloud obtained by pcas</p>
 </dd></dl>
 
 </div></blockquote>
 <dl class="method">
-<dt id="rpim.Window.AltimeterPowerCheckbox">
-<code class="descname">AltimeterPowerCheckbox</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rpim.html#Window.AltimeterPowerCheckbox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.Window.AltimeterPowerCheckbox" title="Permalink to this definition">¶</a></dt>
+<dt id="pcas.Window.AltimeterDataCheckbox">
+<code class="descname">AltimeterDataCheckbox</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pcas.html#Window.AltimeterDataCheckbox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.Window.AltimeterDataCheckbox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method that is executed everytime the state of the Altimeter Data Checkbox for enabling/disabling Data transmission changes.
+When this checkbox is activated, the Profiler checkbox is unselected.
+:param state: valiable that stores the state of the checkbox
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pcas.Window.AltimeterPowerCheckbox">
+<code class="descname">AltimeterPowerCheckbox</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pcas.html#Window.AltimeterPowerCheckbox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.Window.AltimeterPowerCheckbox" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method that is executed everytime the state of the Checkbox for enabling/disabling Power supply changes.
 It involves the Power supply of the Sonar Altimeter, and sends the required command to the Serial Data Switch
 :param state: valiable that stores the state of the checkbox
@@ -869,8 +848,16 @@ It involves the Power supply of the Sonar Altimeter, and sends the required comm
 </dd></dl>
 
 <dl class="method">
-<dt id="rpim.Window.CameraPowerCheckbox">
-<code class="descname">CameraPowerCheckbox</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rpim.html#Window.CameraPowerCheckbox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.Window.CameraPowerCheckbox" title="Permalink to this definition">¶</a></dt>
+<dt id="pcas.Window.CameraDataCheckbox">
+<code class="descname">CameraDataCheckbox</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pcas.html#Window.CameraDataCheckbox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.Window.CameraDataCheckbox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method that is executed everytime the state of the Camera Data Checkbox for enabling/disabling Data transmission changes.
+:param state: valiable that stores the state of the checkbox
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pcas.Window.CameraPowerCheckbox">
+<code class="descname">CameraPowerCheckbox</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pcas.html#Window.CameraPowerCheckbox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.Window.CameraPowerCheckbox" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method that is executed everytime the state of the Checkbox for enabling/disabling Power supply changes.
 It involves the Power supply of the AntiCollision Camera, and sends the required command to the Serial Data Switch
 :param state: valiable that stores the state of the checkbox
@@ -878,8 +865,8 @@ It involves the Power supply of the AntiCollision Camera, and sends the required
 </dd></dl>
 
 <dl class="method">
-<dt id="rpim.Window.ComboAltimeter_Port_Activated">
-<code class="descname">ComboAltimeter_Port_Activated</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rpim.html#Window.ComboAltimeter_Port_Activated"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.Window.ComboAltimeter_Port_Activated" title="Permalink to this definition">¶</a></dt>
+<dt id="pcas.Window.ComboAltimeter_Port_Activated">
+<code class="descname">ComboAltimeter_Port_Activated</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pcas.html#Window.ComboAltimeter_Port_Activated"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.Window.ComboAltimeter_Port_Activated" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is executed everytime the Combo Box for the Valeport Altimeter communication port selection is
 activated.
 :param text: string value with the name of the port.
@@ -887,31 +874,22 @@ activated.
 </dd></dl>
 
 <dl class="method">
-<dt id="rpim.Window.ComboAltimeter_Pow_Activated">
-<code class="descname">ComboAltimeter_Pow_Activated</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rpim.html#Window.ComboAltimeter_Pow_Activated"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.Window.ComboAltimeter_Pow_Activated" title="Permalink to this definition">¶</a></dt>
+<dt id="pcas.Window.ComboAltimeter_Pow_Activated">
+<code class="descname">ComboAltimeter_Pow_Activated</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pcas.html#Window.ComboAltimeter_Pow_Activated"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.Window.ComboAltimeter_Pow_Activated" title="Permalink to this definition">¶</a></dt>
 <dd><p>This funcion is called when the Sonar altimeter combo box for selection of Power Supply Channel is activated.
 Here the value saved in the SDS_Params class for the Power supply channel of the Sonar altimeter is updated.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="rpim.Window.ComboBaudActivated">
-<code class="descname">ComboBaudActivated</code><span class="sig-paren">(</span><em>baudtxt</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rpim.html#Window.ComboBaudActivated"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.Window.ComboBaudActivated" title="Permalink to this definition">¶</a></dt>
-<dd><p>This method is called everytime the combo box with the Baudrate is activated.
-It sends the required command for configuring the baudrate in the Serial Data Switch
-:param baudtxt: the baudrate passed to a string value
-:return:</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="rpim.Window.ComboCam_Pow_Activated">
-<code class="descname">ComboCam_Pow_Activated</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rpim.html#Window.ComboCam_Pow_Activated"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.Window.ComboCam_Pow_Activated" title="Permalink to this definition">¶</a></dt>
+<dt id="pcas.Window.ComboCam_Pow_Activated">
+<code class="descname">ComboCam_Pow_Activated</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pcas.html#Window.ComboCam_Pow_Activated"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.Window.ComboCam_Pow_Activated" title="Permalink to this definition">¶</a></dt>
 <dd><p>This funcion is called when the Profiling Sonar combo box for selection of Power Supply Channel is activated.
 Here the value saved in the SDS_Params class for the Power supply channel of the Profiling sonar is updated.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="rpim.Window.ComboProfiler_Port_Activated">
-<code class="descname">ComboProfiler_Port_Activated</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rpim.html#Window.ComboProfiler_Port_Activated"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.Window.ComboProfiler_Port_Activated" title="Permalink to this definition">¶</a></dt>
+<dt id="pcas.Window.ComboProfiler_Port_Activated">
+<code class="descname">ComboProfiler_Port_Activated</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pcas.html#Window.ComboProfiler_Port_Activated"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.Window.ComboProfiler_Port_Activated" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is executed everytime the Combo Box for the Profiling Sonar communication port selection is
 activated.
 :param text: string value with the name of the port.
@@ -919,15 +897,24 @@ activated.
 </dd></dl>
 
 <dl class="method">
-<dt id="rpim.Window.ComboProfiler_Pow_Activated">
-<code class="descname">ComboProfiler_Pow_Activated</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rpim.html#Window.ComboProfiler_Pow_Activated"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.Window.ComboProfiler_Pow_Activated" title="Permalink to this definition">¶</a></dt>
+<dt id="pcas.Window.ComboProfiler_Pow_Activated">
+<code class="descname">ComboProfiler_Pow_Activated</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pcas.html#Window.ComboProfiler_Pow_Activated"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.Window.ComboProfiler_Pow_Activated" title="Permalink to this definition">¶</a></dt>
 <dd><p>This funcion is called when the Profiling Sonar combo box for selection of Power Supply Channel is activated.
 Here the value saved in the SDS_Params class for the Power supply channel of the Profiling sonar is updated.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="rpim.Window.ProfilerPowerCheckbox">
-<code class="descname">ProfilerPowerCheckbox</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rpim.html#Window.ProfilerPowerCheckbox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.Window.ProfilerPowerCheckbox" title="Permalink to this definition">¶</a></dt>
+<dt id="pcas.Window.ProfilerDataCheckbox">
+<code class="descname">ProfilerDataCheckbox</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pcas.html#Window.ProfilerDataCheckbox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.Window.ProfilerDataCheckbox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method that is executed everytime the state of the Checkbox for enabling/disabling Data transmission.
+When this checkbox is activated, the Altimeter checkbox is unselected.
+:param state: valiable that stores the state of the checkbox
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pcas.Window.ProfilerPowerCheckbox">
+<code class="descname">ProfilerPowerCheckbox</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pcas.html#Window.ProfilerPowerCheckbox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.Window.ProfilerPowerCheckbox" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method that is executed everytime the state of the Checkbox for enabling/disabling Power supply changes.
 It involves the Power supply of the Profiling Sonar, and sends the required command to the Serial Data Switch
 :param state: valiable that stores the state of the checkbox
@@ -935,71 +922,56 @@ It involves the Power supply of the Profiling Sonar, and sends the required comm
 </dd></dl>
 
 <dl class="method">
-<dt id="rpim.Window.btnDOWN_clicked">
-<code class="descname">btnDOWN_clicked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rpim.html#Window.btnDOWN_clicked"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.Window.btnDOWN_clicked" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function is executed when moving down button is clicked
-It publishes the required values in the thrusters to move down</p>
+<dt id="pcas.Window.RecordButtonActivated">
+<code class="descname">RecordButtonActivated</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pcas.html#Window.RecordButtonActivated"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.Window.RecordButtonActivated" title="Permalink to this definition">¶</a></dt>
+<dd><p>When activated, it starts recording a PointCloud, and when clicked again, it stops recording and saves the ply file.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="rpim.Window.btnLEFT_clicked">
-<code class="descname">btnLEFT_clicked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rpim.html#Window.btnLEFT_clicked"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.Window.btnLEFT_clicked" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function is executed when moving left button is clicked
-It publishes the required values in the thrusters to move left</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="rpim.Window.btnRGT_clicked">
-<code class="descname">btnRGT_clicked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rpim.html#Window.btnRGT_clicked"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.Window.btnRGT_clicked" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function is executed when moving right button is clicked
-It publishes the required values in the thrusters to move right</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="rpim.Window.btnUP_clicked">
-<code class="descname">btnUP_clicked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rpim.html#Window.btnUP_clicked"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.Window.btnUP_clicked" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function is executed when moving UP button is clicked
-It publishes the required values in the thrusters to move up</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="rpim.Window.initUI">
-<code class="descname">initUI</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rpim.html#Window.initUI"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.Window.initUI" title="Permalink to this definition">¶</a></dt>
+<dt id="pcas.Window.initUI">
+<code class="descname">initUI</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pcas.html#Window.initUI"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.Window.initUI" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>initUI</em> method initializes the widgets from the UI window, and connects the different signals
 with the slots.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="rpim.Window.joystick_changed">
-<code class="descname">joystick_changed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rpim.html#Window.joystick_changed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.Window.joystick_changed" title="Permalink to this definition">¶</a></dt>
+<dt id="pcas.Window.joystick_changed">
+<code class="descname">joystick_changed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pcas.html#Window.joystick_changed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.Window.joystick_changed" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function unlocs the joystick thread, allowing it to update the
-joystick commands as the ROV thrusther’s value</p>
+joystick commands as the ROV thrusther&#8217;s value</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="rpim.Window.update_ROV_image">
-<code class="descname">update_ROV_image</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rpim.html#Window.update_ROV_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.Window.update_ROV_image" title="Permalink to this definition">¶</a></dt>
+<dt id="pcas.Window.update_ROV_image">
+<code class="descname">update_ROV_image</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pcas.html#Window.update_ROV_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.Window.update_ROV_image" title="Permalink to this definition">¶</a></dt>
 <dd><p>Every time a new image topic arrives, it is updated in the gui widget with this function</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="rpim.Window.update_collisioncam_image">
-<code class="descname">update_collisioncam_image</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rpim.html#Window.update_collisioncam_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.Window.update_collisioncam_image" title="Permalink to this definition">¶</a></dt>
+<dt id="pcas.Window.update_collisioncam_image">
+<code class="descname">update_collisioncam_image</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pcas.html#Window.update_collisioncam_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.Window.update_collisioncam_image" title="Permalink to this definition">¶</a></dt>
 <dd><p>Every time a new image topic arrives, it is updated in the gui widget with this function</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="rpim.Window.update_joystick">
-<code class="descname">update_joystick</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rpim.html#Window.update_joystick"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.Window.update_joystick" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function updates the joystick values and sends them to the ROV’s
+<dt id="pcas.Window.update_joystick">
+<code class="descname">update_joystick</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pcas.html#Window.update_joystick"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.Window.update_joystick" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function updates the joystick values and sends them to the ROV&#8217;s
 thrusters</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="rpim.Window.update_string">
-<code class="descname">update_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rpim.html#Window.update_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.Window.update_string" title="Permalink to this definition">¶</a></dt>
+<dt id="pcas.Window.update_string">
+<code class="descname">update_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pcas.html#Window.update_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.Window.update_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function updates the text value fron the PlainText widget every time the
 value changes</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pcas.Window.update_winch_depth">
+<code class="descname">update_winch_depth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pcas.html#Window.update_winch_depth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.Window.update_winch_depth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the text which shows the information provided by the winch
+with the depth of the pcas</p>
 </dd></dl>
 
 </dd></dl>
@@ -1011,15 +983,15 @@ value changes</p>
 they cannot transmit information concurrently. A Serial Data Switch has been placed between the PCAS and the computer so the user
 is able to select with which sensor from the PCAS wants to communicate.</p>
 <dl class="class">
-<dt id="rpim.SDS_Params">
-<em class="property">class </em><code class="descclassname">rpim.</code><code class="descname">SDS_Params</code><a class="reference internal" href="_modules/rpim.html#SDS_Params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.SDS_Params" title="Permalink to this definition">¶</a></dt>
+<dt id="pcas.SDS_Params">
+<em class="property">class </em><code class="descclassname">pcas.</code><code class="descname">SDS_Params</code><a class="reference internal" href="_modules/pcas.html#SDS_Params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.SDS_Params" title="Permalink to this definition">¶</a></dt>
 <dd><p>The <em>SDS_params</em> class contains all the required elements to command the Serial Data Switch.
 The SDS allows to power on and off the Tritech Profiler, the Sonar Altimeter and the Bowtech Camera.
 It also switches the information channel between the Tritech Profiler and the Sonar altimeter, since
 they cannot both transmit at the same time.</p>
 <dl class="method">
-<dt id="rpim.SDS_Params.parse_params">
-<code class="descname">parse_params</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rpim.html#SDS_Params.parse_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.SDS_Params.parse_params" title="Permalink to this definition">¶</a></dt>
+<dt id="pcas.SDS_Params.parse_params">
+<code class="descname">parse_params</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pcas.html#SDS_Params.parse_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.SDS_Params.parse_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function parses the string messages that need to be transmitted to the SDS board to accomplish the
 required tasks</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1033,16 +1005,16 @@ required tasks</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="rpim.SDS_Params.send">
-<code class="descname">send</code><span class="sig-paren">(</span><em>port</em>, <em>message</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rpim.html#SDS_Params.send"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.SDS_Params.send" title="Permalink to this definition">¶</a></dt>
+<dt id="pcas.SDS_Params.send">
+<code class="descname">send</code><span class="sig-paren">(</span><em>port</em>, <em>message</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pcas.html#SDS_Params.send"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.SDS_Params.send" title="Permalink to this definition">¶</a></dt>
 <dd><p>Send the message with the configuration parameters to the SDS board</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>port</strong> – communication port in which the SDS is connected to</li>
-<li><strong>message</strong> – command to send to the SDS board</li>
+<li><strong>port</strong> &#8211; communication port in which the SDS is connected to</li>
+<li><strong>message</strong> &#8211; command to send to the SDS board</li>
 </ul>
 </td>
 </tr>
@@ -1061,55 +1033,55 @@ required tasks</p>
 <p>The camera data is sent through a ROS topic with the sensor_msgs/Image format, so it is necessary
 to convert it to a matrix format to make it readable from an external module like it is the case
 of the GUI. This is done via Opencv using <code class="docutils literal"><span class="pre">CvBridge</span></code></p>
-<div class="figure align-center" id="id8">
+<div class="figure align-center" id="id7">
 <a class="reference internal image-reference" href="_images/cvbridge.png"><img alt="conversion from ROS Image message to OpenCV matrix" src="_images/cvbridge.png" style="width: 80%;" /></a>
 <p class="caption"><span class="caption-text">conversion from ROS Image message to OpenCV matrix (see <a class="reference external" href="http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages">ROS wiki)</a>.</span></p>
 </div>
 <dl class="class">
-<dt id="rpim.image_converter">
-<em class="property">class </em><code class="descclassname">rpim.</code><code class="descname">image_converter</code><a class="reference internal" href="_modules/rpim.html#image_converter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.image_converter" title="Permalink to this definition">¶</a></dt>
+<dt id="pcas.image_converter">
+<em class="property">class </em><code class="descclassname">pcas.</code><code class="descname">image_converter</code><a class="reference internal" href="_modules/pcas.html#image_converter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.image_converter" title="Permalink to this definition">¶</a></dt>
 <dd><p>The <em>image_converter</em> class contains methods to subscribe to an image
 topic, convert it from sensor_msgs to cv image, and emit a signal to update
 the gui window.</p>
 <p><strong>Attributes</strong>:</p>
 <blockquote>
 <div><dl class="data">
-<dt id="rpim.image_converter.newcameraimage">
-<code class="descname">newcameraimage</code><a class="headerlink" href="#rpim.image_converter.newcameraimage" title="Permalink to this definition">¶</a></dt>
+<dt id="image_converter.newcameraimage">
+<code class="descname">newcameraimage</code><a class="headerlink" href="#image_converter.newcameraimage" title="Permalink to this definition">¶</a></dt>
 <dd><p>A pyqt signal that will be emitted every time a new frame arrives</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="rpim.image_converter.image_sub">
-<code class="descname">image_sub</code><a class="headerlink" href="#rpim.image_converter.image_sub" title="Permalink to this definition">¶</a></dt>
+<dt id="image_converter.image_sub">
+<code class="descname">image_sub</code><a class="headerlink" href="#image_converter.image_sub" title="Permalink to this definition">¶</a></dt>
 <dd><p>ros topic image subscriber</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="rpim.image_converter.cv_image">
-<code class="descname">cv_image</code><a class="headerlink" href="#rpim.image_converter.cv_image" title="Permalink to this definition">¶</a></dt>
+<dt id="image_converter.cv_image">
+<code class="descname">cv_image</code><a class="headerlink" href="#image_converter.cv_image" title="Permalink to this definition">¶</a></dt>
 <dd><p>variable that stores the cv imaged converted from sensor_msgs format</p>
 </dd></dl>
 
 </div></blockquote>
 <dl class="method">
-<dt id="rpim.image_converter.callback">
-<code class="descname">callback</code><span class="sig-paren">(</span><em>data</em>, <em>signal</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rpim.html#image_converter.callback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.image_converter.callback" title="Permalink to this definition">¶</a></dt>
+<dt id="pcas.image_converter.callback">
+<code class="descname">callback</code><span class="sig-paren">(</span><em>data</em>, <em>signal</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pcas.html#image_converter.callback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.image_converter.callback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Receives the Image topic message and converts it from sensor_msgs
 to cv image using cv_bridge.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="rpim.image_converter.subscribe">
-<code class="descname">subscribe</code><span class="sig-paren">(</span><em>signal</em>, <em>imgtopic</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rpim.html#image_converter.subscribe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.image_converter.subscribe" title="Permalink to this definition">¶</a></dt>
+<dt id="pcas.image_converter.subscribe">
+<code class="descname">subscribe</code><span class="sig-paren">(</span><em>signal</em>, <em>imgtopic</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pcas.html#image_converter.subscribe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.image_converter.subscribe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Subscribes to a camera topic</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>signal</strong> – signal related to the camera topic</li>
-<li><strong>imgtopic</strong> – string with camera topic you want to substribe to</li>
+<li><strong>signal</strong> &#8211; signal related to the camera topic</li>
+<li><strong>imgtopic</strong> &#8211; string with camera topic you want to substribe to</li>
 </ul>
 </td>
 </tr>
@@ -1120,62 +1092,19 @@ to cv image using cv_bridge.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="pose-information">
-<h2>3.4. Pose information<a class="headerlink" href="#pose-information" title="Permalink to this headline">¶</a></h2>
-<p>The pose information is very important to collect as it is used for stamping of the different
-measurements with the pose info. The pose information comes from the Geo-Referencing Sub-module.</p>
-<div class="figure align-center" id="id9">
-<a class="reference internal image-reference" href="_images/pose.png"><img alt="pose" src="_images/pose.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-text">Example of pose information used for 3D displaying of the device’s trajectory</span></p>
-</div>
-</div>
-<div class="section" id="gui-joystick-and-navigation-buttons">
-<h2>3.5. GUI Joystick and Navigation Buttons<a class="headerlink" href="#gui-joystick-and-navigation-buttons" title="Permalink to this headline">¶</a></h2>
-<p>Although the AUV is meant to be autonomous or operated with a joystick, an additional joystick has beed added to the GUI for those cases when the AUV needs to be teleoperated but there is not a physical joystick available.</p>
-<div class="figure align-center" id="id10">
-<a class="reference internal image-reference" href="_images/joystick.png"><img alt="Joystick" src="_images/joystick.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-text">Joystick and buttons from the GUI for teleoperation of the AUV. The joystick allows to move the AUV in front, left and right directions. The UP/DOWN buttons move the AUV up and down in the Z axis. The other two buttons rotate the AUV in anti-clockwise and clockwise directions</span></p>
-</div>
+<div class="section" id="depth-subscriber-class">
+<h2>3.4. Depth Subscriber Class<a class="headerlink" href="#depth-subscriber-class" title="Permalink to this headline">¶</a></h2>
+<p>The GUI is is subscriber to the winch depth driver so it can fuse the Profiling Sonar data with the depth data</p>
 <dl class="class">
-<dt id="rpim.Joystick_thread">
-<em class="property">class </em><code class="descclassname">rpim.</code><code class="descname">Joystick_thread</code><a class="reference internal" href="_modules/rpim.html#Joystick_thread"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.Joystick_thread" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>Joystick_thread</em> class creates a thread apart that updates the joystick measurement
-every certain time</p>
-<p><strong>Attributes</strong>:</p>
-<blockquote>
-<div><dl class="data">
-<dt id="rpim.Joystick_thread.signal">
-<code class="descname">signal</code><a class="headerlink" href="#rpim.Joystick_thread.signal" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<p>signal that is emitted to call the slot which updates the velocity commands</p>
-<dl class="data">
-<dt id="rpim.Joystick_thread.mutex">
-<code class="descname">mutex</code><a class="headerlink" href="#rpim.Joystick_thread.mutex" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<p>this mutex only controls the access of the joystick of the buttons
-to write over the ROV commands</p>
-<dl class="data">
-<dt id="rpim.Joystick_thread.is_locked">
-<code class="descname">is_locked</code><a class="headerlink" href="#rpim.Joystick_thread.is_locked" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<p>this variable controls that the joystick is not writing over the ROV a the same time the
-buttons are being pressed</p>
-</div></blockquote>
-<dl class="method">
-<dt id="rpim.Joystick_thread.run">
-<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rpim.html#Joystick_thread.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.Joystick_thread.run" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function is executed every 0.1 secs, and the joystick signal is emitted if
-the joystick is activated</p>
-</dd></dl>
-
+<dt id="pcas.DepthSubscriber">
+<em class="property">class </em><code class="descclassname">pcas.</code><code class="descname">DepthSubscriber</code><a class="reference internal" href="_modules/pcas.html#DepthSubscriber"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.DepthSubscriber" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method calls the class <em>DepthSubscriber</em>, which reads the serial port
+of the winch enconder to publish the PCAS depth</p>
 </dd></dl>
 
 </div>
 <div class="section" id="dynamic-configuration">
-<h2>3.6. Dynamic Configuration<a class="headerlink" href="#dynamic-configuration" title="Permalink to this headline">¶</a></h2>
+<h2>3.5. Dynamic Configuration<a class="headerlink" href="#dynamic-configuration" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="rpim.ParameterServer_Params">
 <em class="property">class </em><code class="descclassname">rpim.</code><code class="descname">ParameterServer_Params</code><a class="reference internal" href="_modules/rpim.html#ParameterServer_Params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.ParameterServer_Params" title="Permalink to this definition">¶</a></dt>
@@ -1183,19 +1112,19 @@ the joystick is activated</p>
 dinamically reconfigured from the User Interface.</p>
 <p>It is required for this parameters to be in a separate class, because in case of the sensors not being initialized
 yet, the variable cannot be defined and the Interface would freeze. Having it in a separate class, we run the
-definition of the variable in a separate thread so it doesn’t freeze the Interface.</p>
+definition of the variable in a separate thread so it doesn&#8217;t freeze the Interface.</p>
 <p><strong>Atributes</strong>:</p>
 <dl class="data">
-<dt id="rpim.ParameterServer_Params.profiler_client">
-<code class="descname">profiler_client</code><a class="headerlink" href="#rpim.ParameterServer_Params.profiler_client" title="Permalink to this definition">¶</a></dt>
+<dt id="ParameterServer_Params.profiler_client">
+<code class="descname">profiler_client</code><a class="headerlink" href="#ParameterServer_Params.profiler_client" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="data">
-<dt id="rpim.ParameterServer_Params.valeport_altimeter_client">
-<code class="descname">valeport_altimeter_client</code><a class="headerlink" href="#rpim.ParameterServer_Params.valeport_altimeter_client" title="Permalink to this definition">¶</a></dt>
+<dt id="ParameterServer_Params.valeport_altimeter_client">
+<code class="descname">valeport_altimeter_client</code><a class="headerlink" href="#ParameterServer_Params.valeport_altimeter_client" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<p>the client of the elements for the dynamic configuration of the Tritech Profiler’s
+<p>the client of the elements for the dynamic configuration of the Tritech Profiler&#8217;s
 parameters.</p>
 <dl class="method">
 <dt id="rpim.ParameterServer_Params.run">
@@ -1206,27 +1135,24 @@ parameters.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="special-methods-for-3d-display">
-<h2>3.7. Special Methods for 3D Display<a class="headerlink" href="#special-methods-for-3d-display" title="Permalink to this headline">¶</a></h2>
-</div>
 <div class="section" id="valeport-altimeter-class">
-<h2>3.8. Valeport Altimeter Class<a class="headerlink" href="#valeport-altimeter-class" title="Permalink to this headline">¶</a></h2>
+<h2>3.6. Valeport Altimeter Class<a class="headerlink" href="#valeport-altimeter-class" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="rpim.altimeter_subscriber">
-<em class="property">class </em><code class="descclassname">rpim.</code><code class="descname">altimeter_subscriber</code><a class="reference internal" href="_modules/rpim.html#altimeter_subscriber"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.altimeter_subscriber" title="Permalink to this definition">¶</a></dt>
+<dt id="pcas.altimeter_subscriber">
+<em class="property">class </em><code class="descclassname">pcas.</code><code class="descname">altimeter_subscriber</code><a class="reference internal" href="_modules/pcas.html#altimeter_subscriber"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.altimeter_subscriber" title="Permalink to this definition">¶</a></dt>
 <dd><p>This class subscribes to the topic that includes the data read by the Altimeter, and emits the signal that
 updates the value shown in the User Interface</p>
 <dl class="method">
-<dt id="rpim.altimeter_subscriber.altimeter_callback">
-<code class="descname">altimeter_callback</code><span class="sig-paren">(</span><em>data</em>, <em>signal1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rpim.html#altimeter_subscriber.altimeter_callback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.altimeter_subscriber.altimeter_callback" title="Permalink to this definition">¶</a></dt>
+<dt id="pcas.altimeter_subscriber.altimeter_callback">
+<code class="descname">altimeter_callback</code><span class="sig-paren">(</span><em>data</em>, <em>signal1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pcas.html#altimeter_subscriber.altimeter_callback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.altimeter_subscriber.altimeter_callback" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method emits the signal that updates the Sonar Altimeter value in the User Interface Screen.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>data</strong> – this variable stores the last measurement from the Sonar Altimeter</li>
-<li><strong>signal1</strong> – this is a input argument, that allows to emit the signal that has been passed through this variable.</li>
+<li><strong>data</strong> &#8211; this variable stores the last measurement from the Sonar Altimeter</li>
+<li><strong>signal1</strong> &#8211; this is a input argument, that allows to emit the signal that has been passed through this variable.</li>
 </ul>
 </td>
 </tr>
@@ -1235,23 +1161,17 @@ updates the value shown in the User Interface</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="rpim.altimeter_subscriber.subscribe">
-<code class="descname">subscribe</code><span class="sig-paren">(</span><em>signal1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rpim.html#altimeter_subscriber.subscribe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rpim.altimeter_subscriber.subscribe" title="Permalink to this definition">¶</a></dt>
+<dt id="pcas.altimeter_subscriber.subscribe">
+<code class="descname">subscribe</code><span class="sig-paren">(</span><em>signal1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pcas.html#altimeter_subscriber.subscribe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pcas.altimeter_subscriber.subscribe" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method defines the subscriber to the topic where the data from the Sonar Altimeter is published</p>
 </dd></dl>
 
 </dd></dl>
 
 </div>
-<div class="section" id="profiling-sonar-class">
-<h2>3.9. Profiling Sonar Class<a class="headerlink" href="#profiling-sonar-class" title="Permalink to this headline">¶</a></h2>
-</div>
 </div>
 
 
-           </div>
-           <div class="articleComments">
-            
            </div>
           </div>
           <footer>
@@ -1259,7 +1179,7 @@ updates the value shown in the User Interface</p>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="index.html" class="btn btn-neutral" title="Welcome to STAMS GUI’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="Welcome to STAMS GUI’s documentation!" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -1293,8 +1213,7 @@ updates the value shown in the User Interface</p>
             VERSION:'1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
+            HAS_SOURCE:  true
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>
